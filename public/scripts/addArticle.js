@@ -1,6 +1,8 @@
 // const updateBTN = document.getElementsByName("id");
 const formB = document.getElementById("form-b");
 // const fileInput = document.getElementById("images-update");
+const fileInput = document.querySelector("#filename");
+
 const files = fileInput.files;
 const urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
 
