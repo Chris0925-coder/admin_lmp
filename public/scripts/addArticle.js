@@ -1,23 +1,23 @@
-const updateBTN = document.getElementsByName("id");
+// const updateBTN = document.getElementsByName("id");
 const formB = document.getElementById("form-b");
-const fileInput = document.getElementById("images-update");
-const files = fileInput.files;
-const ulrAddArticle = "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
+// const fileInput = document.getElementById("images-update");
+// const files = fileInput.files;
+const urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
 
 // const addForm = document.getElementById("form");
-const addBTN = document.getElementById("add-btn");
+// const addBTN = document.getElementById("add-btn");
 
 // const formData = new FormData(form);
 // console.log(formData);
 // console.log(fileInput);
 // console.log(files);
-const data = fileInput.addEventListener("change", (e) => {
-  const file = e.target.files[0];
+// const data = fileInput.addEventListener("change", (e) => {
+  // const file = e.target.files[0];
   // console.log(e);
   // console.log(file);
 
-  return file;
-});
+  // return file;
+// });
 
 const token = getCookie("token");
 
@@ -27,7 +27,7 @@ function addArticle() {
 
     let formData = new FormData(formB);
 
-    let result = await fetch(ulrAddArticle, {
+    let result = await fetch(urlAddArticle, {
       method: "POST",
       headers: {
         'Authorization': `Bearer ${token}`,
