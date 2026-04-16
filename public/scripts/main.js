@@ -14,7 +14,7 @@ function submit() {
 	    message.innerText = "Iniciando sesion...";
 	    const formData = new FormData(form);
 
-		let result = fetch(url, {
+		let result = await fetch(url, {
 			method: "POST",
 			body: JSON.stringify({
 		        username: formData.get("username"),
@@ -28,6 +28,8 @@ function submit() {
         message.innerText = error;
       });
 
+      console.log(result);
+
       if (!result.error) {
 	      setCookie("token", result, 30);
 	      window.location.reload();
@@ -38,6 +40,8 @@ function submit() {
 	    }
 	})
 }
+
+submit();
 // sectionA.setAttribute("class", "hidden");
 // sectionB.removeAttribute("class", "hidden");
 
