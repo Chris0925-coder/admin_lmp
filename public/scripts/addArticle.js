@@ -22,15 +22,10 @@ const data = fileInput.addEventListener("change", (e) => {
 const token = getCookie("token");
 
 function addArticle() {
-  // addForm.forEach((btn) => {
-  // console.log(btn.value);
   formB.addEventListener("submit", async function (event) {
     event.preventDefault();
-    // formData.append("filename", file)
+
     let formData = new FormData(formB);
-    // console.log(filename);
-    // console.log(updateBTN);
-    // console.log(formData.get("filename-b"));
 
     let result = await fetch(ulrAddArticle, {
       method: "POST",
@@ -52,7 +47,13 @@ function addArticle() {
         }
       })
       .catch((error) => console.error("Error:", error));
-    // });
+
+      if(result.message === 'Invalid token') {
+        removeCookie("token");
+        sectionB.setAttribute("class", "hidden");
+        sectionA.removeAttribute("class", "hidden");
+        return message.innerText = result.message + " Inicia sesion"; 
+      }
   });
 }
 

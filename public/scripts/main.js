@@ -54,7 +54,7 @@ submit();
 if(detectCookie("token")) {
 	sectionA.setAttribute("class", "hidden");
 	sectionB.removeAttribute("class", "hidden");
-} 
+}
 
 
 date.append(d.getFullYear ());
