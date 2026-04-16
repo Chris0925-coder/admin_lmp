@@ -1,4 +1,4 @@
-const form = document.querySelector('#form');
+const form = document.getElementById('form');
 let date = document.querySelector('.date');
 const url = "https://visits-christian-guardias-projects.vercel.app/lovingmypets/login";
 const message = document.getElementById("message");
@@ -12,11 +12,20 @@ function submit() {
 		message.style.color = "#009900";
 	    message.innerText = "Iniciando sesion...";
 	    const formData = new FormData(form);
+	    console.log(formData);
+
 
 		let result = await fetch(url, {
 			method: "POST",
-			body: formData,		
-		})
+			headers: {
+	        "Content-Type": "application/json; charset=utf-8",
+	        "Access-Control-Allow-Origin": "*",
+	        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
+	      },
+	      body: JSON.stringify({
+	        username: formData.get("username"),
+	        password: formData.get("password"),
+	      })
 		.then((response) => response.json())
       .catch((error) => {
         console.error("Error:", error);
