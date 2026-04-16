@@ -1,7 +1,7 @@
 // const updateBTN = document.getElementsByName("id");
 const formB = document.getElementById("form-b");
 // const fileInput = document.getElementById("images-update");
-// const files = fileInput.files;
+const files = fileInput.files;
 const urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
 
 // const addForm = document.getElementById("form");
@@ -19,6 +19,10 @@ const urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lov
   // return file;
 // });
 
+if (files.length > 0) {
+  formData.append("filename", fileInput.files[0]);
+}
+
 const token = getCookie("token");
 
 function addArticle() {
@@ -26,6 +30,13 @@ function addArticle() {
     event.preventDefault();
 
     let formData = new FormData(formB);
+
+    let jsonData =  { formData.get("title"),  formData.get("paragraph"),  formData.get("link"),  formData.get("origin")};
+
+    console.log(jsonData);
+
+    // const jsonData = { name: "John Doe", age: 30 };
+    formData.append("metadata", new Blob([JSON.stringify(jsonData)], { type: "application/json" }));
 
     let result = await fetch(urlAddArticle, {
       method: "POST",
@@ -47,6 +58,7 @@ function addArticle() {
         }
       })
       .catch((error) => console.error("Error:", error));
+      console.log(result);
 
       if(result.message === 'Invalid token') {
         removeCookie("token");
