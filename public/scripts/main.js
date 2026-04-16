@@ -15,10 +15,7 @@ function submit() {
 
 		let result = await fetch(url, {
 			method: "POST",
-			body: JSON.stringify({
-		        username: formData.get("username"),
-		        password: formData.get("password"),
-		    }),		
+			body: formData,		
 		})
 		.then((response) => response.json())
       .catch((error) => {
