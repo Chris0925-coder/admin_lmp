@@ -21,9 +21,6 @@ const urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lov
   // return file;
 // });
 
-if (files.length > 0) {
-  formData.append("filename", fileInput.files[0]);
-}
 
 const token = getCookie("token");
 
@@ -39,6 +36,10 @@ function addArticle() {
       "link": formData.get("link"), 
       "origin": formData.get("origin")
     };
+
+    if (files.length > 0) {
+      formData.append("filename", fileInput.files[0]);
+    }
 
     console.log(jsonData);
 
