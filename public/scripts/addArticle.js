@@ -1,9 +1,9 @@
 // const updateBTN = document.getElementsByName("id");
 const formB = document.getElementById("form-b");
 // const fileInput = document.getElementById("images-update");
-const fileInput = document.querySelector("#filename");
+// const fileInput = document.querySelector("#filename");
 
-const files = fileInput.files;
+// const files = fileInput.files;
 const urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
 
 // const addForm = document.getElementById("form");
@@ -30,21 +30,21 @@ function addArticle() {
 
     let formData = new FormData(formB);
 
-    let jsonData =  { 
-      "title": formData.get("title"),  
-      "paragraph": formData.get("paragraph"), 
-      "link": formData.get("link"), 
-      "origin": formData.get("origin")
-    };
+    // let jsonData =  { 
+    //   "title": formData.get("title"),  
+    //   "paragraph": formData.get("paragraph"), 
+    //   "link": formData.get("link"), 
+    //   "origin": formData.get("origin")
+    // };
 
-    if (files.length > 0) {
-      formData.append("filename", fileInput.files[0]);
-    }
+    // if (files.length > 0) {
+    //   formData.append("filename", fileInput.files[0]);
+    // }
 
-    console.log(jsonData);
+    // console.log(jsonData);
 
     // const jsonData = { name: "John Doe", age: 30 };
-    formData.append("metadata", new Blob([JSON.stringify(jsonData)], { type: "application/json" }));
+    // formData.append("metadata", new Blob([JSON.stringify(jsonData)], { type: "application/json" }));
 
     console.log(formData);
 
