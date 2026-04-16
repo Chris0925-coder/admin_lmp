@@ -46,11 +46,12 @@ function addArticle() {
     // const jsonData = { name: "John Doe", age: 30 };
     formData.append("metadata", new Blob([JSON.stringify(jsonData)], { type: "application/json" }));
 
+    console.log(formData);
+
     let result = await fetch(urlAddArticle, {
       method: "POST",
       headers: {
         'Authorization': `Bearer ${token}`,
-        "Content-Type": "application/json; charset=utf-8",
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
       },
