@@ -22,10 +22,11 @@ function submit() {
 	        "Access-Control-Allow-Origin": "*",
 	        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
 	      },
-	      body: JSON.stringify({
+			body: JSON.stringify({
 	        username: formData.get("username"),
 	        password: formData.get("password"),
-	      })
+	      }),
+		})
 		.then((response) => response.json())
       .catch((error) => {
         console.error("Error:", error);
