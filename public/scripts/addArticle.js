@@ -31,7 +31,12 @@ function addArticle() {
 
     let formData = new FormData(formB);
 
-    let jsonData =  { formData.get("title"),  formData.get("paragraph"),  formData.get("link"),  formData.get("origin")};
+    let jsonData =  { 
+      "title": formData.get("title"),  
+      "paragraph": formData.get("paragraph"), 
+      "link": formData.get("link"), 
+      "origin": formData.get("origin")
+    };
 
     console.log(jsonData);
 
