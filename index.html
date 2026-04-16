@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ADMIN | Loving My Pets</title>
+
+	<link rel="stylesheet" type="text/css" href="public/css/main.css">
+
+	<script type="text/javascript" src="public/scripts/cookies.js" defer></script>
+
+	<script type="text/javascript" src="public/scripts/main.js" defer></script>
+</head>
+<body>
+
+	<header>
+		<nav class="nav container">
+			<div class="nav__logo"></div>
+			<div class="nav__collapse">
+				<button class="nav__menu"><img src="public/menu.svg" class="nav__img" alt="icon-menu"></button>
+				<ul class="nav__link nav__link--menu">
+					<li class="nav__items active">
+						<a href="index.html" class="nav__links">Inicio</a>
+					</li>
+					<li class="nav__items">
+						<a href="acercade.html" class="nav__links">Acerca de</a>
+					</li>
+					<li class="nav__items">
+						<a href="tips.html" class="nav__links">LovingMyPets Tips</a>
+					</li>
+					<li class="nav__items">
+						<a href="contacto.html" class="nav__links">Contacto</a>
+					</li>
+					<li class="nav__items">
+						<a href="productos.html" class="nav__links">Productos Recomendados</a>
+					</li>
+					<!-- <li class="nav__items">
+						<a href="#" class="nav__links">Blog</a>
+					</li> -->
+					<button class="nav__close"><img src="public/img/close.svg" alt="close-btn"></button>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<main>
+		<section class="submit">
+			<div class="body-card">
+				<form id="form">
+					<div class="form-group">
+						<!-- <label>Username</label> -->
+						<input type="text" name="username" placeholder="Username">
+					</div>
+					<div class="form-group">
+						<!-- <label>Password</label> -->
+						<input type="Password" name="password" placeholder="Password">
+					</div>
+					<div>
+						<button type="submit">Login</button>
+					</div>
+				</form>
+			</div>
+			<span id="message"></span>
+		</section>
+
+		<section class="articles hidden">
+			<div class="body-card">
+				<form id="form-b">
+					<div class="form-group">
+						<label>Title</label>
+						<input type="text" name="title">
+					</div>
+					<div class="form-group">
+						<label>Paragraph</label>
+						<input type="text" name="paragraph">
+					</div>
+
+					<div class="form-group">
+						<label>Image</label>
+						<input type="file" name="filename">
+					</div>
+
+					<div class="form-group">
+			          <label for="link">Link</label>
+			          <input type="text" name="link" id="link" />
+			        </div>
+			        <input type="hidden" name="origin" value="lmp" />
+			        <div class="form-group">
+			          <button
+			            id="add-btn"
+			            formaction="/articles"
+			            formmethod="post"
+			            type="submit"
+			          >
+			            SEND
+			          </button>
+			        </div>
+				</form>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<div class="copyright">
+	        <div><a rel="nofollow" href="cookies.html" target="_blank">Política de cookies</a></div>
+			    <div> copyright © <span class="date"></span> </div>
+			    <div><a rel="nofollow" href="terms.html" target="_blank">Términos y condiciones</a>
+			</div>
+	    </div>
+	</footer>
+
+</body>
+</html>

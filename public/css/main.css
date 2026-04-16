@@ -1,0 +1,159 @@
+:root {
+    --brand-color: #004481;
+    --brand-second-color: #0075be;
+    --white: #fefefe;
+    --gray: #6c757d;
+    --light-grey: #eaeaea;
+    --light: #f8f9fa;
+    --gray-dark: #343a40;
+    --dark: #212529;
+    --principal-color:#004481;
+    --show: block;
+    --hidden: none;
+    --all-width: 100%;
+    --box: inset -15.5em 0 0 0 #004481,inset 15.5em 0 0 0 #00448199;
+    --backgroundtransparent: #0075be68;
+    --box-two: inset -.1em 0 0 0 #004481,inset .1em 0 0 0 #00448199;
+    --gray100: hsl(0,0%,100%);
+    --gray70: hsl(0,0%,70%);
+    --gray0: hsl(0,0%,0%);
+    --background: linear-gradient(to left, #36D1DC99 0%, #fefefe59 100%);
+/*  --background: linear-gradient(to left, #36D1DCc9, #36D1DC10);*/
+    --solid-bground: linear-gradient(to right, #0075be 0%, #004481 100%);
+}
+
+::-webkit-scrollbar {
+    display: var(--hidden);
+}
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	/*flex-grow: 1;*/
+	flex-direction: column;
+	background: url('https://www.lovingmypets.pro/favicons/logooldC.png') center / contain no-repeat;
+	min-height: 100dvh;
+
+}
+
+button {
+	padding: 6px 12px;
+	cursor: pointer;
+	animation: all .4s ease-in-out;
+	border: none;
+	&:hover {
+		scale: 1.05;
+	}
+
+	&:active {
+		scale: 0.92;
+	}
+}
+
+input {
+	border: none;
+}
+
+header {
+	flex-grow: .1;
+}
+
+main {
+	display: grid;
+	place-content: center;
+	flex-grow: 6;
+	/*border: 1px solid yellow;*/
+	/*margin: auto;*/
+}
+
+footer {
+	flex-grow: .1;
+	border: 1px solid red;
+}
+
+a {
+	text-decoration: none;
+	color: var(--gray);
+	transition: color 0.3s ease-in-out;
+	&:hover {
+		/*background: var(--box);*/
+		/*background: #2b2b2b;*/
+		color: var(--gray-dark);
+	}
+}
+
+ul {
+	list-style: none;
+	color: ;
+}
+
+.nav {
+	width: 100%;
+	max-width: 1800px;
+	margin: 0 auto;
+	padding: 10px 30px;
+}
+
+.nav__collapse {
+	/*border: 1px solid;*/
+	display: flex;
+	justify-content: flex-end;
+}
+
+.nav__menu, .nav__close {
+	display: none;
+}
+
+.nav__link {
+	display: flex;
+	font-size: 0.7rem;
+	/*padding: 30px;*/
+}
+
+.nav__items {
+	display: flex;
+	padding: 5px 10px;
+	min-width: 70px;
+	/*border: 1px solid green;*/
+	align-items: center;
+	a {
+		/*display: flex;*/
+		margin: auto;
+		/*border: 1px solid red;*/
+		/*justify-self: center;*/
+		/*align-self: center;*/
+	}
+
+}
+
+.body-card {
+	background: #fafafa;
+	padding: 15px 30px;
+	border-radius: 10px;
+	border: 2px solid;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	margin: 10px;
+	gap: 0.6em;
+
+}
+
+.copyright {
+	display: flex;
+	font-size: 0.6rem;
+	justify-content: center;
+	gap: .8em;
+}
+
+.hidden {
+	display: none;
+}
