@@ -8,10 +8,9 @@ const token = getCookie("token");
 const urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
 
 // const addForm = document.getElementById("form");
-const updateBTN = document.querySelector(".content-btns");
+const updateBTN = document.getElementById("content-btns");
 let item = updateBTN.querySelector('.item:nth-child(2)');
 let newDiv = document.createElement('div');
-
 
 // const formData = new FormData(form);
 // console.log(formData);
@@ -39,6 +38,8 @@ async function getHome() {
 
   result.forEach((btn) =>{
     console.log(btn);
+    console.log(btn.id);
+    console.log(btn.title);
     newDiv += `
             <button value='${btn.id}'>${btn.title}</button>
           `;
@@ -48,7 +49,6 @@ async function getHome() {
 }
 
 getHome();
-
 
 function addArticle() {
   formB.addEventListener("submit", async function (event) {
