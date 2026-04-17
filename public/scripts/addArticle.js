@@ -1,4 +1,4 @@
-// const updateBTN = document.getElementsByName("id");
+const addArticleBTN = document.getElementById("add-btn");
 const formB = document.getElementById("form-b");
 // const fileInput = document.getElementById("images-update");
 // const fileInput = document.querySelector("#filename");
@@ -7,7 +7,10 @@ const formB = document.getElementById("form-b");
 const urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
 
 // const addForm = document.getElementById("form");
-// const addBTN = document.getElementById("add-btn");
+const updateBTN = document.querySelector(".content-btns");
+let item = updateBTN.querySelector('.item:nth-child(2)');
+let newDiv = document.createElement('div');
+
 
 // const formData = new FormData(form);
 // console.log(formData);
@@ -21,13 +24,30 @@ const urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lov
   // return file;
 // });
 
+function getHome() {
+  // body...
+  let result = fetch(urlAddArticle).then((resp) => resp.json());
+
+  console.log(result);
+
+  result.forEach(btn, () => {
+    newDiv += `
+            <button value='${btn.id}'>${btn.title}</button>
+          `;
+
+
+    updateBTN.insertBefore(newDiv, item);
+  })
+}
+
+getHome();
 
 const token = getCookie("token");
 
 function addArticle() {
   formB.addEventListener("submit", async function (event) {
     event.preventDefault();
-
+    addArticleBTN.disabled = true;
     let formData = new FormData(formB);
 
     // let jsonData =  { 
@@ -46,7 +66,7 @@ function addArticle() {
     // const jsonData = { name: "John Doe", age: 30 };
     // formData.append("metadata", new Blob([JSON.stringify(jsonData)], { type: "application/json" }));
 
-    console.log(formData);
+    // console.log(formData);
 
     let result = await fetch(urlAddArticle, {
       method: "POST",

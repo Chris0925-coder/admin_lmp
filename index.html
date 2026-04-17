@@ -99,6 +99,45 @@
 				</form>
 			</div>
 		</section>
+
+
+		<section>
+	      <h3>Update</h3>
+	      <div class="card-body">
+	        <form id="form-update" enctype="multipart/form-data">
+	          <div class="form-group">
+	            <label for="title">Title</label>
+	            <input name="title" type="text" id="title" />
+	          </div>
+	          <div class="form-group">
+	            <label for="paraph">Paragraph</label>
+	            <textarea type="text" name="paragraph" id="paraph"></textarea>
+	          </div>
+
+	          <div class="form-group">
+	            <label for="images-update">Images</label>
+	            <input type="file" name="filename" id="images-update" />
+	          </div>
+
+	          <div class="form-group">
+	            <label for="link">Link</label>
+	            <input type="text" name="link" id="link" />
+	          </div>
+
+	          <div class="form-group content-btns" id="content-btns">
+	            <!-- <button
+	              name="id"
+	              type="submit"
+	              class="btn-update"
+	              value="<%=data.id%>"
+	              form="form-update"
+	              formaction="/articles/<%= data.id %>"
+	            >
+	            </button> -->
+	          </div>
+	        </form>
+	      </div>
+	    </section>
 	</main>
 	<footer>
 		<div class="copyright">
