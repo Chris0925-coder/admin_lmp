@@ -12,18 +12,6 @@ const updateBTN = document.getElementById("content-btns");
 let item = updateBTN.querySelector('.item:nth-child(2)');
 let newDiv = document.createElement('div');
 
-// const formData = new FormData(form);
-// console.log(formData);
-// console.log(fileInput);
-// console.log(files);
-// const data = fileInput.addEventListener("change", (e) => {
-  // const file = e.target.files[0];
-  // console.log(e);
-  // console.log(file);
-
-  // return file;
-// });
-
 async function getHome() {
   let result = await fetch(urlAddArticle, {
     method: "GET",
@@ -36,10 +24,7 @@ async function getHome() {
 
   console.log(result);
 
-  result.forEach((btn) =>{
-    console.log(btn);
-    console.log(btn.id);
-    console.log(btn.title);
+  result.forEach((btn) => {
     newDiv.innerHTML += `
             <button value='${btn.id}'>Update: ${btn.title}</button>
           `;
@@ -51,7 +36,7 @@ async function getHome() {
   })
 }
 
-getHome();
+
 
 function addArticle() {
   formB.addEventListener("submit", async function (event) {
@@ -114,14 +99,9 @@ function update(b) {
     // console.log(btn.value);
     b.addEventListener("click", async function (event) {
       event.preventDefault();
-      addArticleBTN.disabled = true;
-      // formData.append("filename", file)
+      b.disabled = true;
+      
       let formData = new FormData(form);
-      // const filename = formData.get("filename");
-      // console.log(formData);
-      // console.log(filename);
-      // console.log(updateBTN);
-      // console.log(formData.get("filename-b"));
 
       let result = await fetch(`${urlAddArticle}/${b.value}`, {
         method: "PUT",
@@ -141,10 +121,7 @@ function update(b) {
           }
         })
         .catch((error) => console.error("Error:", error));
-
-      // console.log(result);
     });
-  // });
 }
 
 // update();
@@ -192,3 +169,4 @@ function deleteArticle() {
 }
 
 // deleteArticle();
+getHome();
