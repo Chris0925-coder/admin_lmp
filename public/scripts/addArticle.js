@@ -1,5 +1,6 @@
 const addArticleBTN = document.getElementById("add-btn");
 const formB = document.getElementById("form-b");
+const formUpdate = document.getElementById('form-update');
 const token = getCookie("token");
 // const fileInput = document.getElementById("images-update");
 // const fileInput = document.querySelector("#filename");
@@ -11,31 +12,6 @@ const urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lov
 const updateBTN = document.getElementById("content-btns");
 let item = updateBTN.querySelector('.item:nth-child(2)');
 let newDiv = document.createElement('div');
-
-async function getHome() {
-  let result = await fetch(urlAddArticle, {
-    method: "GET",
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
-      },
-  }).then((resp) => resp.json());
-
-  console.log(result);
-
-  result.forEach((btn) => {
-    newDiv.innerHTML += `
-            <button value='${btn.id}'>Update: ${btn.title}</button>
-          `;
-
-    updateBTN.insertBefore(newDiv, item);
-
-
-    update(btn);
-  })
-}
-
 
 
 function addArticle() {
@@ -101,7 +77,7 @@ function update(b) {
       event.preventDefault();
       b.disabled = true;
       
-      let formData = new FormData(form);
+      let formData = new FormData(formUpdate);
 
       let result = await fetch(`${urlAddArticle}/${b.value}`, {
         method: "PUT",
@@ -169,4 +145,28 @@ function deleteArticle() {
 }
 
 // deleteArticle();
+async function getHome() {
+  let result = await fetch(urlAddArticle, {
+    method: "GET",
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
+      },
+  }).then((resp) => resp.json());
+
+  console.log(result);
+
+  result.forEach((btn) => {
+    newDiv.innerHTML += `
+            <button value='${btn.id}'>Update: ${btn.title}</button>
+          `;
+
+    updateBTN.insertBefore(newDiv, item);
+
+
+    update(btn);
+  })
+}
+
 getHome();
