@@ -40,7 +40,7 @@ async function getHome() {
     console.log(btn);
     console.log(btn.id);
     console.log(btn.title);
-    newDiv += `
+    newDiv.innerHTML += `
             <button value='${btn.id}'>${btn.title}</button>
           `;
 
