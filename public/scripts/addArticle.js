@@ -1,5 +1,6 @@
 const addArticleBTN = document.getElementById("add-btn");
 const formB = document.getElementById("form-b");
+const token = getCookie("token");
 // const fileInput = document.getElementById("images-update");
 // const fileInput = document.querySelector("#filename");
 
@@ -47,7 +48,6 @@ function getHome() {
 
 getHome();
 
-const token = getCookie("token");
 
 function addArticle() {
   formB.addEventListener("submit", async function (event) {
