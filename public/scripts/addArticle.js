@@ -101,8 +101,6 @@ function update(id) {
   });
 }
 
-// update();
-
 // const deleteBTN = document.getElementsByName("btn-delete");
 
 function deleteArticle() {
@@ -159,7 +157,7 @@ async function getHome() {
   console.log(result);
 
   result.forEach((btn) => {
-    newDiv.innerHTML += `
+    newDiv.innerHTML = `
             <button value='${btn.id}'>Update: ${btn.title}</button>
           `;
 
