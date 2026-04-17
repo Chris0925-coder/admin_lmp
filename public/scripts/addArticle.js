@@ -25,8 +25,8 @@ let newDiv = document.createElement('div');
   // return file;
 // });
 
-function getHome() {
-  let result = fetch(urlAddArticle, {
+async function getHome() {
+  let result = await fetch(urlAddArticle, {
     method: "GET",
       headers: {
         'Authorization': `Bearer ${token}`,
