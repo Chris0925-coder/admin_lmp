@@ -25,8 +25,14 @@ let newDiv = document.createElement('div');
 // });
 
 function getHome() {
-  // body...
-  let result = fetch(urlAddArticle).then((resp) => resp.json());
+  let result = fetch(urlAddArticle, {
+    method: "GET",
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
+      },
+  }).then((resp) => resp.json());
 
   console.log(result);
 
@@ -34,7 +40,6 @@ function getHome() {
     newDiv += `
             <button value='${btn.id}'>${btn.title}</button>
           `;
-
 
     updateBTN.insertBefore(newDiv, item);
   })
