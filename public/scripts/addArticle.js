@@ -70,16 +70,16 @@ function addArticle() {
 
 addArticle();
 
-function update(btn) {
+function update(id) {
   // b.forEach((btn) => {
-    btn.addEventListener("click", async function (event) {
-      event.preventDefault();
-      console.log(btn)
-      btn.disabled = true;
+    // btn.addEventListener("click", async function (event) {
+      // event.preventDefault();
+      console.log(id)
+      // btn.disabled = true;
       
       let formData = new FormData(formUpdate);
 
-      let result = await fetch(`${urlAddArticle}/${btn.value}`, {
+      let result = await fetch(`${urlAddArticle}/${id}`, {
         method: "PUT",
         // headers: {
         //   "Content-Type": "application/json; charset=utf-8",
@@ -97,7 +97,7 @@ function update(btn) {
           }
         })
         .catch((error) => console.error("Error:", error));
-    });
+    // });
   // });
 }
 
@@ -165,8 +165,10 @@ async function getHome() {
 
     updateBTN.insertBefore(newDiv, item);
 
-    console.lg(newDiv);
-    update(newDiv);
+    console.log(newDiv);
+
+
+    // update(newDiv);
   })
 }
 
