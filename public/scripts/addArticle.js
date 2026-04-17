@@ -70,7 +70,7 @@ function addArticle() {
 
 addArticle();
 
-function update(id) {
+async function update(id) {
   // b.forEach((btn) => {
     // btn.addEventListener("click", async function (event) {
       // event.preventDefault();
