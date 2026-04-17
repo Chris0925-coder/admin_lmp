@@ -88,6 +88,7 @@ async function getHome() {
     //       `;
     newDiv.innerText += btn.title;
     newDiv.value += btn.id;
+    console.log(newDiv);
 
     updateBTN.insertBefore(newDiv, item);
     update(newDiv)
@@ -99,7 +100,8 @@ async function getHome() {
 getHome();
 
 function update(b) {
-  b.forEach((id) => {
+  console.log(Object.values(b));
+  Object.values(b).forEach((id) => {
     id.addEventListener("click", async function (event) {
       event.preventDefault();
       console.log(id)
