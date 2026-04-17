@@ -37,7 +37,8 @@ async function getHome() {
 
   console.log(result);
 
-  result.forEach(btn, () => {
+  result.forEach((btn) =>{
+    console.log(btn);
     newDiv += `
             <button value='${btn.id}'>${btn.title}</button>
           `;
