@@ -70,16 +70,16 @@ function addArticle() {
 
 addArticle();
 
-async function update(id) {
+function update(id) {
   // b.forEach((btn) => {
-    // btn.addEventListener("click", async function (event) {
-      // event.preventDefault();
+    id.addEventListener("click", async function (event) {
+      event.preventDefault();
       console.log(id)
       // btn.disabled = true;
       
       let formData = new FormData(formUpdate);
 
-      let result = await fetch(`${urlAddArticle}/${id}`, {
+      let result = await fetch(`${urlAddArticle}/${id.value}`, {
         method: "PUT",
         // headers: {
         //   "Content-Type": "application/json; charset=utf-8",
@@ -98,7 +98,7 @@ async function update(id) {
         })
         .catch((error) => console.error("Error:", error));
     // });
-  // });
+  });
 }
 
 // update();
@@ -168,7 +168,7 @@ async function getHome() {
     console.log(newDiv);
 
 
-    // update(newDiv);
+    update(newDiv);
   })
 }
 
