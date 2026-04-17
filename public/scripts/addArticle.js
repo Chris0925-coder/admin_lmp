@@ -41,10 +41,13 @@ async function getHome() {
     console.log(btn.id);
     console.log(btn.title);
     newDiv.innerHTML += `
-            <button value='${btn.id}'>${btn.title}</button>
+            <button value='${btn.id}'>Update: ${btn.title}</button>
           `;
 
     updateBTN.insertBefore(newDiv, item);
+
+
+    update(btn);
   })
 }
 
@@ -106,11 +109,12 @@ function addArticle() {
 
 addArticle();
 
-function update() {
-  updateBTN.forEach((btn) => {
+function update(b) {
+  // updateBTN.forEach((btn) => {
     // console.log(btn.value);
-    btn.addEventListener("click", async function (event) {
+    b.addEventListener("click", async function (event) {
       event.preventDefault();
+      addArticleBTN.disabled = true;
       // formData.append("filename", file)
       let formData = new FormData(form);
       // const filename = formData.get("filename");
@@ -119,7 +123,7 @@ function update() {
       // console.log(updateBTN);
       // console.log(formData.get("filename-b"));
 
-      let result = await fetch(`/upload/${btn.value}`, {
+      let result = await fetch(`${urlAddArticle}/${b.value}`, {
         method: "PUT",
         // headers: {
         //   "Content-Type": "application/json; charset=utf-8",
@@ -140,7 +144,7 @@ function update() {
 
       // console.log(result);
     });
-  });
+  // });
 }
 
 // update();
