@@ -11,7 +11,7 @@ const urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lov
 // const addForm = document.getElementById("form");
 const updateBTN = document.getElementById("content-btns");
 let item = updateBTN.querySelector('.item:nth-child(2)');
-let newDiv = document.createElement('div');
+let newDiv = document.createElement('button');
 
 
 function addArticle() {
@@ -70,8 +70,36 @@ function addArticle() {
 
 addArticle();
 
-function update(id) {
-  // b.forEach((btn) => {
+async function getHome() {
+  let result = await fetch(urlAddArticle, {
+    method: "GET",
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
+      },
+  }).then((resp) => resp.json());
+
+  console.log(result);
+
+  result.forEach((btn) => {
+    // newDiv.innerHTML += `
+    //         <button value='${btn.id}'>Update: ${btn.title}</button>
+    //       `;
+    newDiv.innerText += btn.title;
+    newDiv.value += btn.id;
+
+    updateBTN.insertBefore(newDiv, item);
+    update(newDiv)
+
+  })
+
+}
+
+getHome();
+
+function update(b) {
+  b.forEach((id) => {
     id.addEventListener("click", async function (event) {
       event.preventDefault();
       console.log(id)
@@ -97,7 +125,7 @@ function update(id) {
           }
         })
         .catch((error) => console.error("Error:", error));
-    // });
+    });
   });
 }
 
@@ -144,30 +172,3 @@ function deleteArticle() {
 }
 
 // deleteArticle();
-async function getHome() {
-  let result = await fetch(urlAddArticle, {
-    method: "GET",
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
-      },
-  }).then((resp) => resp.json());
-
-  console.log(result);
-
-  result.forEach((btn) => {
-    newDiv.innerHTML = `
-            <button value='${btn.id}'>Update: ${btn.title}</button>
-          `;
-
-    updateBTN.insertBefore(newDiv, item);
-
-    console.log(newDiv);
-
-
-    update(newDiv);
-  })
-}
-
-getHome();
