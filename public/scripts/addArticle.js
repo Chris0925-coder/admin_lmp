@@ -110,7 +110,7 @@ async function getHome() {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
-      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Origin": "https://admin.lovingmypets.pro/",
       "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
     },
   }).then((resp) => resp.json());
