@@ -29,11 +29,11 @@ async function deleteArticle(id) {
       })
         .then((response) => {
           if (response.ok) {
-            console.log(response);
-            alert(`DELETE ${response.data} article successfully!`);
-            // window.location.reload();
+            alert(`DELETE article successfully!`);
+            window.location.reload();
           } else {
             alert("Failed to delete the form submission.");
+            window.location.reload();
           }
         })
         .catch((error) => console.error("Error:", error));
@@ -75,6 +75,7 @@ function addArticle() {
           window.location.reload();
         } else {
           alert("Failed to send the form submission.");
+          window.location.reload();
         }
       })
       .catch((error) => console.error("Error:", error));
@@ -138,7 +139,10 @@ async function update(id) {
         alert("Update article successfully!");
         window.location.reload();
       } else {
+
         alert("Failed to update the form submission.");
+        window.location.reload();
+
       }
     })
     .catch((error) => console.error("Error:", error));
