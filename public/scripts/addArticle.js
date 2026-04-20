@@ -132,19 +132,7 @@ async function getHome() {
 addArticle();
 getHome();
 
-async function update() {
-  let id;
-
-  updateBTN.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    if (e.target.tagName == "BUTTON") {
-      id = e.target.value;
-    }
-
-  });
-
-  console.log(id);
+async function update(id) {
 
   let formData = new FormData(formUpdate);
 
@@ -171,4 +159,11 @@ async function update() {
     console.log(result);    
 }
 
-update();
+updateBTN.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log(e.target.tagName)
+
+  if (e.target.tagName === "BUTTON") {
+    update(e.target.value);
+  }
+});
