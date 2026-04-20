@@ -82,7 +82,7 @@ function addArticle() {
       headers: {
         Authorization: `Bearer ${token}`,
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
+        "Access-Control-Methods": "GET,HEAD,POST,PUT,OPTIONS",
       },
       body: formData,
     })
