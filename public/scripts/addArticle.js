@@ -33,6 +33,9 @@ async function update(id) {
     .catch((error) => console.error("Error:", error));
 }
 
+
+
+
 function deleteArticle() {
   deleteBTN.forEach((btn) => {
     // console.log(btn);
@@ -131,6 +134,8 @@ async function getHome() {
       "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
     },
   }).then((resp) => resp.json());
+
+  console.log(result);
 
   result.forEach((btn) => {
 
