@@ -14,29 +14,6 @@ const updateBTN = document.getElementById("content-btns");
 let item = updateBTN.querySelector(".item:nth-child(2)");
 let newDiv = document.createElement("div");
 
-async function update(id) {
-  let formData = new FormData(formUpdate);
-
-  console.log(formData);
-
-  let result = await fetch(`${urlAddArticle}/${id}`, {
-    method: "PUT",
-    body: formData,
-  })
-    .then((response) => {
-      console.log(response.ok);
-      if (response.ok) {
-        alert("Update article successfully!");
-      } else {
-        alert("Failed to update the form submission.");
-      }
-    })
-    .catch((error) => console.error("Error:", error));
-
-    console.log(result);
-}
-
-
 
 
 function deleteArticle() {
@@ -79,20 +56,20 @@ function deleteArticle() {
   });
 }
 
-function content(id, title) {
-  newDiv.setAttribute("class", "btns-id");
-  newDiv.innerHTML += `
-            <button value='${id}'>Update: ${title}</button>
-          `;
+// function content(id, title) {
+//   newDiv.setAttribute("class", "btns-id");
+//   newDiv.innerHTML += `
+//             <button value='${id}'>Update: ${title}</button>
+//           `;
   //   console.log(newDiv);
-  updateBTN.insertBefore(newDiv, item);
-  newDiv.addEventListener("click", (e) => {
+//   updateBTN.insertBefore(newDiv, item);
+//   newDiv.addEventListener("click", (e) => {
 
-    if (e.target.tagName == "BUTTON") {
-      update(e.target.value);
-    }
-  });
-}
+//     if (e.target.tagName == "BUTTON") {
+//       update(e.target.value);
+//     }
+//   });
+// }
 
 function addArticle() {
   formB.addEventListener("submit", async function (event) {
@@ -162,3 +139,26 @@ async function getHome() {
 // deleteArticle();
 addArticle();
 getHome();
+
+async function update(id) {
+  let formData = new FormData(formUpdate);
+
+  console.log(formData);
+
+  let result = await fetch(`${urlAddArticle}/${id}`, {
+    method: "PUT",
+    body: formData,
+  })
+    .then((response) => {
+      console.log(response);
+      if (response.ok) {
+        alert("Update article successfully!");
+      } else {
+        alert("Failed to update the form submission.");
+      }
+    })
+    .catch((error) => console.error("Error:", error));
+
+    console.log(result);
+}
+
