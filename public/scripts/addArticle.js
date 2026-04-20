@@ -24,6 +24,7 @@ async function update(id) {
     body: formData,
   })
     .then((response) => {
+      console.log(response.ok);
       if (response.ok) {
         alert("Update article successfully!");
       } else {
@@ -31,6 +32,8 @@ async function update(id) {
       }
     })
     .catch((error) => console.error("Error:", error));
+
+    console.log(result);
 }
 
 
