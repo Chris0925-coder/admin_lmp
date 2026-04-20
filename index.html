@@ -64,75 +64,77 @@
 			<span id="message"></span>
 		</section>
 
-		<section class="articles hidden">
-			<div class="body-card">
-				<form id="form-b" enctype="multipart/form-data">
-					<div class="form-group">
-						<label>Title</label>
-						<input type="text" name="title">
-					</div>
-					<div class="form-group">
-						<label>Paragraph</label>
-						<input type="text" name="paragraph">
-					</div>
+		<div class="articles hidden">
+			<section>
+				<h1>Articulos</h1>
+				<div class="body-card">
+					<form id="form-b" enctype="multipart/form-data">
+						<div class="form-group">
+							<label>Title</label>
+							<input type="text" name="title">
+						</div>
+						<div class="form-group">
+							<label>Paragraph</label>
+							<input type="text" name="paragraph">
+						</div>
 
-					<div class="form-group">
-						<label>Image</label>
-						<input type="file" name="filename" id="filename">
-					</div>
+						<div class="form-group">
+							<label>Image</label>
+							<input type="file" name="filename" id="filename">
+						</div>
 
-					<div class="form-group">
-			          <label for="link">Link</label>
-			          <input type="text" name="link" id="link" />
-			        </div>
-			        <input type="hidden" name="origin" value="lmp" />
-			        <div class="form-group">
-			          <button
-			            id="add-btn"
-			            formaction="/articles"
-			            formmethod="post"
-			            type="submit"
-			          >
-			            SEND
-			          </button>
-			        </div>
-				</form>
-			</div>
-		</section>
+						<div class="form-group">
+				          <label for="link">Link</label>
+				          <input type="text" name="link" id="link" />
+				        </div>
+				        <input type="hidden" name="origin" value="lmp" />
+				        <div class="form-group">
+				          <button
+				            id="add-btn"
+				            formaction="/articles"
+				            formmethod="post"
+				            type="submit"
+				          >
+				            SEND
+				          </button>
+				        </div>
+					</form>
+				</div>
+			</section>
 
+			<section class="update">
+		      <h3>Update</h3>
+		      <div class="body-card">
+		        <form id="form-update" enctype="multipart/form-data">
+		          <div class="form-group">
+		            <label for="title">Title</label>
+		            <input name="title" type="text" id="title" />
+		          </div>
+		          <div class="form-group">
+		            <label for="paraph">Paragraph</label>
+		            <textarea type="text" name="paragraph" id="paraph"></textarea>
+		          </div>
 
-		<section class="update">
-	      <h3>Update</h3>
-	      <div class="body-card">
-	        <form id="form-update" enctype="multipart/form-data">
-	          <div class="form-group">
-	            <label for="title">Title</label>
-	            <input name="title" type="text" id="title" />
-	          </div>
-	          <div class="form-group">
-	            <label for="paraph">Paragraph</label>
-	            <textarea type="text" name="paragraph" id="paraph"></textarea>
-	          </div>
+		          <div class="form-group">
+		            <label for="images-update">Images</label>
+		            <input type="file" name="filename" id="images-update" />
+		          </div>
 
-	          <div class="form-group">
-	            <label for="images-update">Images</label>
-	            <input type="file" name="filename" id="images-update" />
-	          </div>
+		          <div class="form-group">
+		            <label for="link">Link</label>
+		            <input type="text" name="link" id="link" />
+		          </div>
 
-	          <div class="form-group">
-	            <label for="link">Link</label>
-	            <input type="text" name="link" id="link" />
-	          </div>
+		          <input type="hidden" name="origin" value="lmp" />
+		          <div class="form-group content-btns" id="content-btns"></div>
+		        </form>
+		      </div>
+		    </section>
 
-	          <input type="hidden" name="origin" value="lmp" />
-	          	<div class="form-group content-btns" id="content-btns"></div>
-	        </form>
-	      </div>
-	    </section>
-
-	    <section class="body-card">
-	    	<div class="content-delete-btns" id="content-delete-btns"><h3>Delete</h3></div>
-	    </section>
+		    <section class="body-card">
+		    	<div class="content-delete-btns" id="content-delete-btns"><h3>Delete</h3></div>
+		    </section>
+	    </div>
 	</main>
 	<footer>
 		<div class="copyright">
