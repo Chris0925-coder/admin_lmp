@@ -41,11 +41,19 @@ body {
 	min-height: 100dvh;
 }
 
+h1,h2,h3 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
 button {
 	padding: 6px 12px;
 	cursor: pointer;
 	animation: all .4s ease-in-out;
 	border: none;
+	width: 80px;
+	margin: .1em;
+	overflow: hidden;
 	&:hover {
 		scale: 1.05;
 	}
@@ -57,6 +65,7 @@ button {
 
 input {
 	border: none;
+	background-color: aliceblue;
 }
 
 header {
@@ -164,7 +173,7 @@ ul {
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
-	margin: 15px auto;
+	padding: 15px auto;
 	max-width: 500px;
 }
  
