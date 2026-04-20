@@ -37,10 +37,6 @@ async function deleteArticle(id) {
           }
         })
         .catch((error) => console.error("Error:", error));
-
-      // console.log(result);
-    // });
-  // });
 }
 
 // function content(id, title) {
@@ -152,6 +148,7 @@ async function update(id) {
 updateBTN.addEventListener("click", (e) => {
   e.preventDefault();
   if (e.target.tagName === "BUTTON") {
+    e.target.disabled = true;
     update(e.target.value);
   }
 });
@@ -159,6 +156,7 @@ updateBTN.addEventListener("click", (e) => {
 deleteBTN.addEventListener("click", (e) => {
   e.preventDefault();
   if (e.target.tagName === "BUTTON") {
+    e.target.disabled = true;
     deleteArticle(e.target.value);
   }
 });

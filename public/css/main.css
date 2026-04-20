@@ -39,7 +39,6 @@ body {
 	flex-direction: column;
 	background: url('https://www.lovingmypets.pro/favicons/logooldC.png') center / contain no-repeat;
 	min-height: 100dvh;
-
 }
 
 button {
@@ -62,17 +61,23 @@ input {
 
 header {
 	flex-grow: .1;
+	max-width: 1800px;
+	padding: 0 40px;
 }
 
 main {
 	display: grid;
 	place-content: center;
 	flex-grow: 6;
+	max-width: 1800px;
+	padding: 0 40px;
 	/*border: 1px solid yellow;*/
 	/*margin: auto;*/
 }
 
 footer {
+	max-width: 1800px;
+	padding: 0 40px;
 	flex-grow: .1;
 	/*border: 1px solid red;*/
 }
@@ -97,7 +102,7 @@ ul {
 	width: 100%;
 	max-width: 1800px;
 	margin: 0 auto;
-	padding: 10px 30px;
+	padding: 10px;
 }
 
 .nav__collapse {
@@ -154,6 +159,16 @@ ul {
 	gap: .8em;
 }
 
+.content-btns div, .content-delete-btns div{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 15px auto;
+	max-width: 500px;
+}
+ 
 .hidden {
 	display: none;
 }
+
