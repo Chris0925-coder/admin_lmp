@@ -141,7 +141,7 @@ async function update(id) {
   let result = await fetch(`${urlAddArticle}/${id}`, {
     method: "PUT",
     headers: {
-      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Origin": "https://admin.lovingmypets.pro/",
       "Access-Control-Methods": "GET,PUT,HEAD,POST,OPTIONS",
     },
     body: formData,
