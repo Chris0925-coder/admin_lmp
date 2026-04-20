@@ -19,7 +19,7 @@ let newDivDelete = document.createElement("div");
 
 
 
-function deleteArticle(id) {
+async function deleteArticle(id) {
       let result = await fetch(`${urlAddArticle}/${id}`, {
         method: "DELETE",
 
@@ -29,7 +29,8 @@ function deleteArticle(id) {
       })
         .then((response) => {
           if (response.ok) {
-            alert("DELETE article successfully!");
+            console.log(response);
+            alert(`DELETE ${response.data} article successfully!`);
             window.location.reload();
           } else {
             alert("Failed to delete the form submission.");
