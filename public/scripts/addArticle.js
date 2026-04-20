@@ -31,7 +31,7 @@ async function deleteArticle(id) {
           if (response.ok) {
             console.log(response);
             alert(`DELETE ${response.data} article successfully!`);
-            window.location.reload();
+            // window.location.reload();
           } else {
             alert("Failed to delete the form submission.");
           }
