@@ -82,7 +82,7 @@ function addArticle() {
       headers: {
         Authorization: `Bearer ${token}`,
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Methods": "GET,HEAD,POST,PUT,OPTIONS",
+        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
       },
       body: formData,
     })
@@ -110,7 +110,7 @@ async function getHome() {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
-      "Access-Control-Allow-Origin": "https://admin.lovingmypets.pro/",
+      "Access-Control-Allow-Origin": "*",
       "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
     },
   }).then((resp) => resp.json());
@@ -147,6 +147,10 @@ async function update(id) {
 
   let result = await fetch(`${urlAddArticle}/${id}`, {
     method: "PUT",
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Methods": "GET,PUT,HEAD,POST,OPTIONS",
+    },
     body: formData,
   })
     .then((response) => {
