@@ -124,14 +124,6 @@ async function getHome() {
           `;
   });
 
-  updateBTN.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    if (e.target.tagName == "BUTTON") {
-      update(e.target.value);
-    }
-
-  });
 }
 
 
@@ -140,7 +132,20 @@ async function getHome() {
 addArticle();
 getHome();
 
-async function update(id) {
+async function update() {
+  let id;
+
+  updateBTN.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (e.target.tagName == "BUTTON") {
+      id = e.target.value;
+    }
+
+  });
+
+  console.log(id);
+
   let formData = new FormData(formUpdate);
 
   console.log(formData);
@@ -163,6 +168,7 @@ async function update(id) {
     })
     .catch((error) => console.error("Error:", error));
 
-    console.log(result);
+    console.log(result);    
 }
 
+update();
