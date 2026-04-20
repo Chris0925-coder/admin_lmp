@@ -115,8 +115,6 @@ async function getHome() {
     },
   }).then((resp) => resp.json());
 
-  console.log(result);
-
   result.forEach((btn) => {
 
     updateBTN.innerHTML += `
@@ -136,33 +134,28 @@ async function update(id) {
 
   let formData = new FormData(formUpdate);
 
-  console.log(formData);
-
   let result = await fetch(`${urlAddArticle}/${id}`, {
     method: "PUT",
     headers: {
-      "Access-Control-Allow-Origin": "https://admin.lovingmypets.pro/",
+      "Access-Control-Allow-Origin": "*",
       "Access-Control-Methods": "GET,PUT,HEAD,POST,OPTIONS",
     },
     body: formData,
   })
     .then((response) => {
-      console.log(response);
       if (response.ok) {
         alert("Update article successfully!");
+        window.location.reload();
       } else {
         alert("Failed to update the form submission.");
       }
     })
     .catch((error) => console.error("Error:", error));
-
-    console.log(result);    
+  
 }
 
 updateBTN.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log(e.target.tagName)
-
   if (e.target.tagName === "BUTTON") {
     update(e.target.value);
   }
