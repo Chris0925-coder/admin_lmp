@@ -17,7 +17,17 @@ let item2 = deleteBTN.querySelector(".item:nth-child(2)");
 let newDiv = document.createElement("div");
 let newDivDelete = document.createElement("div");
 
+const opciones = {
+    timeZone: "America/Panama",
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true
+};
 
+const date = new Intl.DateTimeFormat("es-PA", opciones).format(ahora);
 
 async function deleteArticle(id) {
       let result = await fetch(`${urlAddArticle}/${id}`, {
@@ -59,6 +69,10 @@ function addArticle() {
     event.preventDefault();
     addArticleBTN.disabled = true;
     let formData = new FormData(formB);
+
+    formData.append('date', date);
+
+    console.log(formData);
 
     let result = await fetch(urlAddArticle, {
       method: "POST",
@@ -124,6 +138,8 @@ getHome();
 async function update(id) {
 
   let formData = new FormData(formUpdate);
+
+  formData.append('update', date);
 
   let result = await fetch(`${urlAddArticle}/${id}`, {
     method: "PUT",
