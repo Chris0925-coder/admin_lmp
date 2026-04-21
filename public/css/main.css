@@ -68,6 +68,10 @@ input {
 	background-color: aliceblue;
 }
 
+textarea {
+	field-sizing: content;
+}
+
 header {
 	flex-grow: .1;
 	max-width: 1800px;
@@ -151,6 +155,7 @@ ul {
 	padding: 15px 30px;
 	border-radius: 10px;
 	border: 2px solid;
+	margin-bottom: .2em;
 }
 
 .form-group {
@@ -158,7 +163,6 @@ ul {
 	flex-direction: column;
 	margin: 10px;
 	gap: 0.6em;
-
 }
 
 .copyright {

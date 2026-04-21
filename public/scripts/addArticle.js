@@ -113,7 +113,6 @@ async function getHome() {
 
     deleteBTN.insertBefore(newDivDelete, item2);
   });
-
 }
 
 

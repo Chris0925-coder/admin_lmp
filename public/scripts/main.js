@@ -37,7 +37,7 @@ function submit() {
       console.log(result);
 
       if (!result.error) {
-	      setCookie("token", result, 30);
+	      setCookie("token", result, 7);
 	      window.location.reload();
 	     // window.location.replace("https://www.crcvpanama.org/pages/admin.html")
 	    } else {
