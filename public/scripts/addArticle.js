@@ -27,7 +27,7 @@ const opciones = {
     hour12: true
 };
 
-const date = new Intl.DateTimeFormat("es-PA", opciones).format(ahora);
+const dateNow = new Intl.DateTimeFormat("es-PA", opciones).format(d);
 
 async function deleteArticle(id) {
       let result = await fetch(`${urlAddArticle}/${id}`, {
@@ -70,7 +70,7 @@ function addArticle() {
     addArticleBTN.disabled = true;
     let formData = new FormData(formB);
 
-    formData.append('date', date);
+    formData.append('date', dateNow);
 
     console.log(formData);
 
@@ -139,7 +139,7 @@ async function update(id) {
 
   let formData = new FormData(formUpdate);
 
-  formData.append('update', date);
+  formData.append('update', dateNow);
 
   let result = await fetch(`${urlAddArticle}/${id}`, {
     method: "PUT",
