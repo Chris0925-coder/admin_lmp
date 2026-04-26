@@ -19,6 +19,7 @@ let newDivDelete = document.createElement("div");
 
 const opciones = {
     timeZone: "America/Panama",
+    year: "numeric",
     weekday: "short",
     day: "numeric",
     month: "short",
@@ -71,8 +72,6 @@ function addArticle() {
     let formData = new FormData(formB);
 
     formData.append('date', dateNow);
-
-    console.log(formData);
 
     let result = await fetch(urlAddArticle, {
       method: "POST",
