@@ -112,7 +112,12 @@ async function getHome() {
     },
   }).then((resp) => resp.json());
 
-  console.log(result);
+  console.log(result.ok);
+
+  // if(result.message === "Invalid token") {
+  //   removeCookie("token");
+  //   window.location.reload();
+  // }
 
   result.forEach((btn) => {
 
