@@ -110,7 +110,12 @@ async function getHome() {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
     },
-  }).then((resp) => resp.json());
+  }).then((resp) => resp.json())
+  .catch((error) => {
+        console.error("Error:", error);
+        message.style.color = "#990000";
+        message.innerText = error;
+      });
 
   console.log(result.ok);
 
