@@ -112,7 +112,11 @@ async function getHome() {
     },
   }).then((resp) => resp.json());
 
+  console.log(result);
+
   result.forEach((btn) => {
+
+    console.log(btn);
 
     newDiv.innerHTML += `
             <button value='${btn.id}'>Update: ${btn.title}</button>
