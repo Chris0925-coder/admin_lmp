@@ -117,7 +117,9 @@ async function getHome() {
         message.innerText = error;
       });
 
-  console.log(result.ok);
+  console.log(result);
+
+  console.log(result.error);
 
   // if(result.message === "Invalid token") {
   //   removeCookie("token");
