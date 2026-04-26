@@ -117,18 +117,12 @@ async function getHome() {
         message.innerText = error;
       });
 
-  console.log(result);
-
-  console.log(result.error);
-
-  // if(result.message === "Invalid token") {
-  //   removeCookie("token");
-  //   window.location.reload();
-  // }
+  if(result.message === "Invalid token") {
+    removeCookie("token");
+    window.location.reload();
+  }
 
   result.forEach((btn) => {
-
-    console.log(btn);
 
     newDiv.innerHTML += `
             <button value='${btn.id}'>Update: ${btn.title}</button>
