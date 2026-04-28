@@ -179,6 +179,8 @@ async function update(id) {
 
   let formData = new FormData(formUpdate);
 
+  formData.append("paragraphs", JSON.stringify(paragraphs));
+
   formData.append('update', dateNow);
 
   let result = await fetch(`${urlAddArticle}/${id}`, {
