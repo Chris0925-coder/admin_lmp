@@ -2,8 +2,9 @@ const addArticleBTN = document.getElementById("add-btn");
 const formB = document.getElementById("form-b");
 const formUpdate = document.getElementById("form-update");
 const token = getCookie("token");
-// const fileInput = document.getElementById("images-update");
-// const fileInput = document.querySelector("#filename");
+const btnAddParagraph = document.getElementById("add-paragraph");
+const btnAddList = document.getElementById("add-list");
+const textAreaPara = document.getElementsByName("paragraph");
 
 // const files = fileInput.files;
 const urlAddArticle =
@@ -17,6 +18,10 @@ let item2 = deleteBTN.querySelector(".item:nth-child(2)");
 let newDiv = document.createElement("div");
 let newDivDelete = document.createElement("div");
 
+let paragraphs = [];
+
+let blogList = [];
+
 const opciones = {
     timeZone: "America/Panama",
     year: "numeric",
@@ -29,6 +34,30 @@ const opciones = {
 };
 
 const dateNow = new Intl.DateTimeFormat("es-PA", opciones).format(d);
+
+btnAddParagraph.addEventListener("click", (e) => {
+  e.preventDefault();
+  paragraphs.push(`<p>${textAreaPara[0].value}</p>`);
+
+  textAreaPara[0].value = "";
+
+});
+
+btnAddList.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  let listSplit = textAreaPara[0].value.split("•");
+  if (!textAreaPara[0].value.includes("•"))
+    listSplit = textAreaPara[0].value.split(",");
+
+  listSplit.forEach((l) => {
+    let ul = `<li>${l}</li>`;
+
+    paragraphs.push(ul);
+  });
+
+  textAreaPara[0].value = "";
+});
 
 async function deleteArticle(id) {
       let result = await fetch(`${urlAddArticle}/${id}`, {
@@ -70,6 +99,8 @@ function addArticle() {
     event.preventDefault();
     addArticleBTN.disabled = true;
     let formData = new FormData(formB);
+
+    formData.append("paragraphs", JSON.stringify(paragraphs));
 
     formData.append('date', dateNow);
 
