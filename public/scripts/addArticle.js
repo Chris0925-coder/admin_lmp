@@ -177,7 +177,7 @@ getHome();
 
 async function update(id) {
 
-  let formData = new FormData(formUpdate);
+  let formData = new FormData(formB);
 
   formData.append("paragraphs", JSON.stringify(paragraphs));
 
