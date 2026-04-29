@@ -18,7 +18,7 @@ let item2 = deleteBTN.querySelector(".item:nth-child(2)");
 let newDiv = document.createElement("div");
 let newDivDelete = document.createElement("div");
 
-// let paragraphs = [];
+let paragraphs = [];
 
 // let blogList = [];
 
@@ -100,7 +100,7 @@ function addArticle() {
     addArticleBTN.disabled = true;
     let formData = new FormData(formB);
 
-    // formData.append("paragraphs", JSON.stringify(paragraphs));
+    formData.append("paragraphs", JSON.stringify(paragraphs));
 
     formData.append('date', dateNow);
 
