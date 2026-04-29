@@ -2,8 +2,8 @@ const addArticleBTN = document.getElementById("add-btn");
 const formB = document.getElementById("form-b");
 const formUpdate = document.getElementById("form-update");
 const token = getCookie("token");
-const btnAddParagraph = document.getElementById("add-paragraph");
-const btnAddList = document.getElementById("add-list");
+// const btnAddParagraph = document.getElementById("add-paragraph");
+// const btnAddList = document.getElementById("add-list");
 const textAreaPara = document.getElementsByName("paragraph");
 
 // const files = fileInput.files;
@@ -18,9 +18,9 @@ let item2 = deleteBTN.querySelector(".item:nth-child(2)");
 let newDiv = document.createElement("div");
 let newDivDelete = document.createElement("div");
 
-let paragraphs = [];
+// let paragraphs = [];
 
-let blogList = [];
+// let blogList = [];
 
 const opciones = {
     timeZone: "America/Panama",
@@ -35,29 +35,29 @@ const opciones = {
 
 const dateNow = new Intl.DateTimeFormat("es-PA", opciones).format(d);
 
-btnAddParagraph.addEventListener("click", (e) => {
-  e.preventDefault();
-  paragraphs.push(`<p>${textAreaPara[0].value}</p>`);
+// btnAddParagraph.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   paragraphs.push(`<p>${textAreaPara[0].value}</p>`);
 
-  textAreaPara[0].value = "";
+//   textAreaPara[0].value = "";
 
-});
+// });
 
-btnAddList.addEventListener("click", (e) => {
-  e.preventDefault();
+// btnAddList.addEventListener("click", (e) => {
+//   e.preventDefault();
 
-  let listSplit = textAreaPara[0].value.split("•");
-  if (!textAreaPara[0].value.includes("•"))
-    listSplit = textAreaPara[0].value.split(",");
+//   let listSplit = textAreaPara[0].value.split("•");
+//   if (!textAreaPara[0].value.includes("•"))
+//     listSplit = textAreaPara[0].value.split(",");
 
-  listSplit.forEach((l) => {
-    let ul = `<li>${l}</li>`;
+//   listSplit.forEach((l) => {
+//     let ul = `<li>${l}</li>`;
 
-    paragraphs.push(ul);
-  });
+//     paragraphs.push(ul);
+//   });
 
-  textAreaPara[0].value = "";
-});
+//   textAreaPara[0].value = "";
+// });
 
 async function deleteArticle(id) {
       let result = await fetch(`${urlAddArticle}/${id}`, {
@@ -100,7 +100,7 @@ function addArticle() {
     addArticleBTN.disabled = true;
     let formData = new FormData(formB);
 
-    formData.append("paragraphs", JSON.stringify(paragraphs));
+    // formData.append("paragraphs", JSON.stringify(paragraphs));
 
     formData.append('date', dateNow);
 
