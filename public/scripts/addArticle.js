@@ -113,7 +113,10 @@ function addArticle() {
       },
       body: formData,
     })
-      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        response.json();
+    })
       .catch((error) => console.error("Error:", error));
 
       //  {
