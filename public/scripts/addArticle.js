@@ -113,17 +113,19 @@ function addArticle() {
       },
       body: formData,
     })
-      .then((response) => {
-        console.log(response);
-        if (response.ok) {
-          alert("Added article successfully!");
-          window.location.reload();
-        } else {
-          alert("Failed to send the form submission.");
-          window.location.reload();
-        }
-      })
+      .then((response) => response.json())
       .catch((error) => console.error("Error:", error));
+
+      //  {
+      //   console.log(response);
+      //   if (response.ok) {
+      //     alert("Added article successfully!");
+      //     window.location.reload();
+      //   } else {
+      //     alert("Failed to send the form submission.");
+      //     window.location.reload();
+      //   }
+      // }
 
       console.log(result);
       console.log(result.message);
