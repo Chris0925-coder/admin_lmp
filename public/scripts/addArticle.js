@@ -139,6 +139,9 @@ function addArticle() {
       sectionA.removeAttribute("class", "hidden");
       return (message.innerText = result.message + " Inicia sesion");
     }
+
+      alert("Added article successfully!");
+      window.location.reload();
   });
 }
 
