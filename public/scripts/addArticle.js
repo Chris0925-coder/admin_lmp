@@ -205,7 +205,7 @@ function addArticle() {
       body: formData,
     })
       .then((response) => {
-          // console.log(response);
+          console.log(response);
 
         if(response.status === 413) {
           message.innerText = "File size too large. MAX SIZE = 4.5mb";
@@ -228,11 +228,11 @@ function addArticle() {
           return (message.innerText = msg.message + " Inicia sesion");
         }
 
-        if (msg.message === "Upload Successfully") {
+        // if (response.ok) {
           message.innerText = msg.message;
           alert(msg.message);
           window.location.reload();
-        } 
+        // } 
 
 
       })
