@@ -222,7 +222,7 @@ function addArticle() {
       console.log(result.message);
 
 
-      if (result.message === "LIMIT_FILE_SIZE") return alert("File size too large");
+      if (result.err === "LIMIT_FILE_SIZE") return alert("File size too large");
 
     if (result.message === "Invalid token") {
       removeCookie("token");
