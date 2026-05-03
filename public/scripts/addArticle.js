@@ -226,13 +226,14 @@ function addArticle() {
           return (message.innerText = msg.message + " Inicia sesion");
         }
 
+        console.log(response);
+        console.log(msg);
+
         if (response.ok) {
           message.innerText = "Upload Successfully";
           alert("Upload Successfully");
           // window.location.reload();
         }
-
-        response.json();
 
       })
       .catch((error) => console.error("Error:", error));
