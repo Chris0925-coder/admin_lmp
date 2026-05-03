@@ -213,7 +213,6 @@ function addArticle() {
           window.location.reload();
         }
 
-
         let msg = response.json();
 
         if (msg.message === "LIMIT_FILE_SIZE") {
@@ -227,12 +226,14 @@ function addArticle() {
           sectionA.removeAttribute("class", "hidden");
           return (message.innerText = msg.message + " Inicia sesion");
         }
+        console.log(response.ok);
+        console.log(msg);
 
-        // if (response.ok) {
+        if (response.ok) {
           message.innerText = msg.message;
           alert(msg.message);
           window.location.reload();
-        // } 
+        } 
 
 
       })
