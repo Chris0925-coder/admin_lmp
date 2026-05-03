@@ -205,7 +205,7 @@ function addArticle() {
       body: formData,
     })
       .then((response) => {
-          console.log(response);
+          let msg = response.json();
 
         if(response.status === 413) {
           message.innerText = "File size too large. MAX SIZE = 4.5mb";
@@ -213,8 +213,7 @@ function addArticle() {
           window.location.reload();
         }
 
-        let msg = response.json();
-
+        
         if (msg.message === "LIMIT_FILE_SIZE") {
             alert("File size too large. MAX SIZE = 4.5mb");
             window.location.reload();
@@ -232,6 +231,8 @@ function addArticle() {
           alert("Upload Successfully");
           window.location.reload();
         }
+
+        response.json();
 
       })
       .catch((error) => console.error("Error:", error));
