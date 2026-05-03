@@ -94,59 +94,7 @@ async function deleteArticle(id) {
 //   });
 // }
 
-function addArticle() {
-  formB.addEventListener("submit", async function (event) {
-    event.preventDefault();
-    addArticleBTN.disabled = true;
-    let formData = new FormData(formB);
 
-    formData.append("paragraphs", JSON.stringify(paragraphs));
-
-    formData.append('date', dateNow);
-
-    let result = await fetch(urlAddArticle, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
-      },
-      body: formData,
-    })
-      .then((response) => {
-        console.log(response);
-        response.json();
-    })
-      .catch((error) => console.error("Error:", error));
-
-      //  {
-      //   console.log(response);
-      //   if (response.ok) {
-      //     alert("Added article successfully!");
-      //     window.location.reload();
-      //   } else {
-      //     alert("Failed to send the form submission.");
-      //     window.location.reload();
-      //   }
-      // }
-
-      console.log(result);
-      console.log(result.message);
-
-
-      if (result.message === "LIMIT_FILE_SIZE") return alert("File size too large");
-
-    if (result.message === "Invalid token") {
-      removeCookie("token");
-      sectionB.setAttribute("class", "hidden");
-      sectionA.removeAttribute("class", "hidden");
-      return (message.innerText = result.message + " Inicia sesion");
-    }
-
-      alert("Added article successfully!");
-      window.location.reload();
-  });
-}
 
 async function getHome() {
   let result = await fetch(urlAddArticle, {
@@ -187,7 +135,7 @@ async function getHome() {
 
 
 // deleteArticle();
-addArticle();
+// addArticle();
 getHome();
 
 async function update(id) {
@@ -236,3 +184,56 @@ deleteBTN.addEventListener("click", (e) => {
     deleteArticle(e.target.value);
   }
 });
+
+function addArticle() {
+  formB.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    addArticleBTN.disabled = true;
+    let formData = new FormData(formB);
+
+    formData.append("paragraphs", JSON.stringify(paragraphs));
+
+    formData.append('date', dateNow);
+
+    let result = await fetch(urlAddArticle, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
+      },
+      body: formData,
+    })
+      .then((response) => response.json())
+      .catch((error) => console.error("Error:", error));
+
+      //  {
+      //   console.log(response);
+      //   if (response.ok) {
+      //     alert("Added article successfully!");
+      //     window.location.reload();
+      //   } else {
+      //     alert("Failed to send the form submission.");
+      //     window.location.reload();
+      //   }
+      // }
+
+      console.log(result);
+      console.log(result.message);
+
+
+      if (result.message === "LIMIT_FILE_SIZE") return alert("File size too large");
+
+    if (result.message === "Invalid token") {
+      removeCookie("token");
+      sectionB.setAttribute("class", "hidden");
+      sectionA.removeAttribute("class", "hidden");
+      return (message.innerText = result.message + " Inicia sesion");
+    }
+
+      alert("Added article successfully!");
+      window.location.reload();
+  });
+}
+
+addArticle();
