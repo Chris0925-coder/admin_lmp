@@ -226,15 +226,12 @@ function addArticle() {
           sectionA.removeAttribute("class", "hidden");
           return (message.innerText = msg.message + " Inicia sesion");
         }
-        console.log(response.ok);
-        console.log(msg);
 
         if (response.ok) {
-          message.innerText = msg.message;
-          alert(msg.message);
+          message.innerText =  "Upload Successfully";
+          alert("Upload Successfully");
           window.location.reload();
-        } 
-
+        }
 
       })
       .catch((error) => console.error("Error:", error));
@@ -250,7 +247,7 @@ function addArticle() {
       //   }
       // }
 
-      // console.log(result);
+      console.log(result);
       // console.log(result.message);
 
 
