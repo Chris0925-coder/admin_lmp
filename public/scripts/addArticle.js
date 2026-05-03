@@ -226,13 +226,10 @@ function addArticle() {
           return (message.innerText = msg.message + " Inicia sesion");
         }
 
-        console.log(response);
-        console.log(msg);
-
         if (response.ok) {
           message.innerText = "Upload Successfully";
           alert("Upload Successfully");
-          // window.location.reload();
+          window.location.reload();
         }
 
       })
@@ -249,7 +246,7 @@ function addArticle() {
       //   }
       // }
 
-      console.log(result);
+      // console.log(result);
       // console.log(result.message);
 
 
