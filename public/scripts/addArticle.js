@@ -205,29 +205,35 @@ function addArticle() {
       body: formData,
     })
       .then((response) => {
-          console.log(response);
+          // console.log(response);
 
-        if (response.message === "LIMIT_FILE_SIZE") {
+        if(response.status === 413) {
+          message.innerText = "File size too large. MAX SIZE = 4.5mb";
+          alert("File size too large. MAX SIZE = 4.5mb");
+          window.location.reload();
+        }
+
+
+        let msg = response.json();
+
+        if (msg.message === "LIMIT_FILE_SIZE") {
             alert("File size too large. MAX SIZE = 4.5mb");
             window.location.reload();
         }
 
-        if (response.message === "Invalid token") {
+        if (msg.message === "Invalid token") {
           removeCookie("token");
           sectionB.setAttribute("class", "hidden");
           sectionA.removeAttribute("class", "hidden");
-          return (message.innerText = response.message + " Inicia sesion");
+          return (message.innerText = msg.message + " Inicia sesion");
         }
 
-        if (response.message === "Upload Successfully") {
-          message.innerText = response.message;
-          alert(response.message);
+        if (msg.message === "Upload Successfully") {
+          message.innerText = msg.message;
+          alert(msg.message);
           window.location.reload();
-        } else {
-          message.innerText = response.message;
-          alert(response.message);
-          window.location.reload();
-        }
+        } 
+
 
       })
       .catch((error) => console.error("Error:", error));
@@ -243,8 +249,8 @@ function addArticle() {
       //   }
       // }
 
-      console.log(result);
-      console.log(result.message);
+      // console.log(result);
+      // console.log(result.message);
 
 
     // if (result.message === "LIMIT_FILE_SIZE") {
