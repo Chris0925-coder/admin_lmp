@@ -219,7 +219,7 @@ function addArticle() {
       // }
 
       console.log(result);
-      console.log(result.message);
+      console.log(result.err);
 
 
       if (result.err === "LIMIT_FILE_SIZE") return alert("File size too large");
@@ -231,8 +231,16 @@ function addArticle() {
       return (message.innerText = result.message + " Inicia sesion");
     }
 
-      alert("Added article successfully!");
+       console.log(result);
+    if (result.message === "Upload Successfully") {
+      message.innerText = result.message;
+      alert(result.message);
       window.location.reload();
+    } else {
+      message.innerText = result.message;
+      alert(result.message);
+      window.location.reload();
+    }
   });
 }
 
