@@ -204,8 +204,33 @@ function addArticle() {
       },
       body: formData,
     })
-      .then((response) => response.json())
-      .catch((error) => console.error("Error:", error.message));
+      .then((response) => {
+          console.log(response);
+
+        if (response.message === "LIMIT_FILE_SIZE") {
+            alert("File size too large. MAX SIZE = 4.5mb");
+            window.location.reload();
+        }
+
+        if (response.message === "Invalid token") {
+          removeCookie("token");
+          sectionB.setAttribute("class", "hidden");
+          sectionA.removeAttribute("class", "hidden");
+          return (message.innerText = response.message + " Inicia sesion");
+        }
+
+        if (response.message === "Upload Successfully") {
+          message.innerText = response.message;
+          alert(response.message);
+          window.location.reload();
+        } else {
+          message.innerText = response.message;
+          alert(response.message);
+          window.location.reload();
+        }
+
+      })
+      .catch((error) => console.error("Error:", error));
 
       //  {
       //   console.log(response);
@@ -222,28 +247,28 @@ function addArticle() {
       console.log(result.message);
 
 
-    if (result.message === "LIMIT_FILE_SIZE") {
-        alert("File size too large. MAX SIZE = 4.5mb");
-        window.location.reload();
-    }
+    // if (result.message === "LIMIT_FILE_SIZE") {
+    //     alert("File size too large. MAX SIZE = 4.5mb");
+    //     window.location.reload();
+    // }
 
-    if (result.message === "Invalid token") {
-      removeCookie("token");
-      sectionB.setAttribute("class", "hidden");
-      sectionA.removeAttribute("class", "hidden");
-      return (message.innerText = result.message + " Inicia sesion");
-    }
+    // if (result.message === "Invalid token") {
+    //   removeCookie("token");
+    //   sectionB.setAttribute("class", "hidden");
+    //   sectionA.removeAttribute("class", "hidden");
+    //   return (message.innerText = result.message + " Inicia sesion");
+    // }
 
-       console.log(result);
-    if (result.message === "Upload Successfully") {
-      message.innerText = result.message;
-      alert(result.message);
-      window.location.reload();
-    } else {
-      message.innerText = result.message;
-      alert(result.message);
-      window.location.reload();
-    }
+    //    console.log(result);
+    // if (result.message === "Upload Successfully") {
+    //   message.innerText = result.message;
+    //   alert(result.message);
+    //   window.location.reload();
+    // } else {
+    //   message.innerText = result.message;
+    //   alert(result.message);
+    //   window.location.reload();
+    // }
   });
 }
 
