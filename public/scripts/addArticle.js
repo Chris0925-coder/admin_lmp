@@ -227,9 +227,9 @@ function addArticle() {
         }
 
         if (response.ok) {
-          message.innerText =  "Upload Successfully";
+          message.innerText = "Upload Successfully";
           alert("Upload Successfully");
-          window.location.reload();
+          // window.location.reload();
         }
 
         response.json();
