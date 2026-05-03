@@ -114,6 +114,7 @@ function addArticle() {
       body: formData,
     })
       .then((response) => {
+        console.log(response);
         if (response.ok) {
           alert("Added article successfully!");
           window.location.reload();
@@ -123,6 +124,12 @@ function addArticle() {
         }
       })
       .catch((error) => console.error("Error:", error));
+
+      console.log(result);
+      console.log(result.message);
+
+
+      if (result.message === "LIMIT_FILE_SIZE") return alert("File size too large");
 
     if (result.message === "Invalid token") {
       removeCookie("token");
