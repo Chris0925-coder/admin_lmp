@@ -204,7 +204,7 @@ async function getHome() {
   result.forEach((btn) => {
     let parse = btn.title;
 
-    if (!btn.title.includes("object")) parse = JSON.parse(btn.title)[0];
+    if (typeof parse === Object) parse = JSON.parse(btn.title)[0];
     newDiv.innerHTML += `
             <button value='${btn.id}'>Update: ${parse}</button>
           `;
