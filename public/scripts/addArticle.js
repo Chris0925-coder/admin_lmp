@@ -305,22 +305,21 @@ function addArticle() {
 
       body: formData,
     })
-      .then((response) => await response.json())
-      .catch((error) => console.error("Error: ", error));
+      .then((response) => {
 
-      console.log(result);
-        if(result.status === 413) {
+        let res = await response.json(); 
+        if(response.status === 413) {
           message.innerText = "File size too large. MAX SIZE = 4.5mb";
           alert("File size too large. MAX SIZE = 4.5mb");
           window.location.reload();
         }
         
-        if (result.message === "LIMIT_FILE_SIZE") {
+        if (res.message === "LIMIT_FILE_SIZE") {
             alert("File size too large. MAX SIZE = 4.5mb");
             window.location.reload();
         }
 
-        if (result.message === "Invalid token") {
+        if (res.message === "Invalid token") {
           removeCookie("token");
           sectionB.setAttribute("class", "hidden");
           sectionA.removeAttribute("class", "hidden");
@@ -329,11 +328,17 @@ function addArticle() {
 
         console.log(result.ok);
 
-        if (result.ok) {
+        if (response.ok) {
           message.innerText = "Upload Successfully";
           alert("Upload Successfully");
           window.location.reload();
         }
+
+      })
+      .catch((error) => console.error("Error: ", error));
+
+      console.log(result);
+        
 
   });
     
