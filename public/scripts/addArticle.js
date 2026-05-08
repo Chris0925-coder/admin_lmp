@@ -274,7 +274,7 @@ function addArticle() {
 
     let formData = new FormData();
 
-    // console.log(newArticle.length === 0);
+    console.log(newArticle.length === 0);
     if (newArticle.length === 0) {
       formData = new FormData(formB);
       formData.append("title", formData.get("title"));
@@ -283,12 +283,13 @@ function addArticle() {
       formData.append("link", formData.get("link"));
     } else {
       for (let j = 0; j < newArticle.length; j++) {
+        console.log(newArticle);
         let articleTitles = [newArticle[j].title];
 
-        // console.log(articleTitles);
+        console.log(articleTitles);
 
         let articleParagraph = [newArticle[j].paragraph];
-        // console.log(articleParagraph);
+        console.log(articleParagraph);
         let articleFiles = [newArticle[j].filename];
         // console.log(articleFiles);
         formData.append("title", articleTitles);
