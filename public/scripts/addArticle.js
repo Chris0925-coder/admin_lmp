@@ -1,5 +1,6 @@
 const addArticleBTN = document.getElementById("add-btn");
 const addNewArticleBTN = document.getElementById("add-new-article");
+const textAreaPara = document.getElementsByName("paragraph");
 const formB = document.getElementById("form-b");
 const formUpdate = document.getElementById("form-update");
 const fileInput = document.getElementById("filename");
