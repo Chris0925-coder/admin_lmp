@@ -93,27 +93,7 @@ let articles = {
 };
 let newArticle = [];
 
-function addNewArticle() {
-  addNewArticleBTN.addEventListener("click", (e) => {
-    e.preventDefault();
 
-    let formData = new FormData(formB);
-    articles = {
-      title: formData.get("title"),
-      paragraph: formData.get("paragraph"),
-      filename: formData.get("filename"),
-      origin: formData.get("origin"),
-      link: formData.get("link"),
-      paragraphs: "",
-    };    
-    newArticle.push(articles);
-
-    input[2].value = "";
-    textAreaPara[0].value = "";
-  });
-}
-
-addNewArticle();
 
 const dateNow = new Intl.DateTimeFormat("es-PA", opciones).format(d);
 
@@ -351,3 +331,24 @@ function addArticle() {
     
 }
 addArticle();
+function addNewArticle() {
+  addNewArticleBTN.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    let formData = new FormData(formB);
+    articles = {
+      title: formData.get("title"),
+      paragraph: formData.get("paragraph"),
+      filename: formData.get("filename"),
+      origin: formData.get("origin"),
+      link: formData.get("link"),
+      paragraphs: "",
+    };    
+    newArticle.push(articles);
+
+    input[2].value = "";
+    textAreaPara[0].value = "";
+  });
+}
+
+addNewArticle();
