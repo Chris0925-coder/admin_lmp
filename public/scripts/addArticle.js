@@ -300,7 +300,7 @@ function addArticle() {
         formData.append("paragraph", articleParagraph);
 
         for (let i = 0; i < articleFiles.length; i++) {
-          formData.append("filename[]", articleFiles[i]);
+          formData.append("filename", articleFiles[i]);
         }
       }
 
