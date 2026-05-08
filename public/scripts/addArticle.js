@@ -24,10 +24,10 @@ fileInput.addEventListener("change", function (event) {
   }
 
   // Validate file type
-  if (!file.type.startsWith("image/")) {
-    errorMsg.textContent = "Please select a valid image file.";
-    return;
-  }
+  // if (!file.type.startsWith("image/")) {
+  //   errorMsg.textContent = "Please select a valid image file.";
+  //   return;
+  // }
 
   // Validate file size (example: max 2MB)
   const maxSizeMB = 4.5;
@@ -93,6 +93,26 @@ let articles = {
 };
 let newArticle = [];
 
+function addNewArticle() {
+  addNewArticleBTN.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    let formData = new FormData(formB);
+    articles = {
+      title: formData.get("title"),
+      paragraph: formData.get("paragraph"),
+      filename: formData.get("filename"),
+      origin: formData.get("origin"),
+      link: formData.get("link"),
+      paragraphs: "",
+    };    
+    newArticle.push(articles);
+
+    input[2].value = "";
+    textAreaPara[0].value = "";
+  });
+}
+addNewArticle();
 
 
 const dateNow = new Intl.DateTimeFormat("es-PA", opciones).format(d);
@@ -244,6 +264,8 @@ deleteBTN.addEventListener("click", (e) => {
   }
 });
 
+
+
 function addArticle() {
   formB.addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -295,6 +317,13 @@ function addArticle() {
 
         let res = response.json(); 
         console.log(res);
+
+        if(response.status === 500) {
+          message.innerText = res.message;
+          // alert("File size too large. MAX SIZE = 4.5mb");
+          // window.location.reload();
+        }
+
         if(response.status === 413) {
           message.innerText = "File size too large. MAX SIZE = 4.5mb";
           alert("File size too large. MAX SIZE = 4.5mb");
@@ -331,25 +360,5 @@ function addArticle() {
     
 }
 
-function addNewArticle() {
-  addNewArticleBTN.addEventListener("click", (e) => {
-    e.preventDefault();
 
-    let formData = new FormData(formB);
-    articles = {
-      title: formData.get("title"),
-      paragraph: formData.get("paragraph"),
-      filename: formData.get("filename"),
-      origin: formData.get("origin"),
-      link: formData.get("link"),
-      paragraphs: "",
-    };    
-    newArticle.push(articles);
-
-    input[2].value = "";
-    textAreaPara[0].value = "";
-  });
-}
-
-addNewArticle();
 addArticle();
