@@ -20,7 +20,7 @@ fileInput.addEventListener("change", function (event) {
   // errorMsg.textContent = "";
 
   if (!file) {
-    return; // No file selected
+    return; 
   }
 
   // Validate file type
@@ -330,7 +330,7 @@ function addArticle() {
   });
     
 }
-addArticle();
+
 function addNewArticle() {
   addNewArticleBTN.addEventListener("click", (e) => {
     e.preventDefault();
@@ -352,3 +352,4 @@ function addNewArticle() {
 }
 
 addNewArticle();
+addArticle();
