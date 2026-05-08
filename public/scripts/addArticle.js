@@ -307,7 +307,8 @@ function addArticle() {
     })
       .then((response) => {
 
-        let res = await response.json(); 
+        let res = response.json(); 
+        console.log(res);
         if(response.status === 413) {
           message.innerText = "File size too large. MAX SIZE = 4.5mb";
           alert("File size too large. MAX SIZE = 4.5mb");
