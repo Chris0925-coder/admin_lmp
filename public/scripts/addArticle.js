@@ -204,7 +204,7 @@ async function getHome() {
   result.forEach((btn) => {
     let parse = btn.title;
 
-    if (typeof parse === Object) parse = JSON.parse(btn.title)[0];
+    if (parse.includes("[")) parse = JSON.parse(btn.title)[0];
     newDiv.innerHTML += `
             <button value='${btn.id}'>Update: ${parse}</button>
           `;
@@ -218,7 +218,6 @@ async function getHome() {
     deleteBTN.insertBefore(newDivDelete, item2);
   });
 }
-
 // deleteArticle();
 
 getHome();

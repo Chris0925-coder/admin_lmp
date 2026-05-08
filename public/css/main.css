@@ -1,186 +1,199 @@
 :root {
-    --brand-color: #004481;
-    --brand-second-color: #0075be;
-    --white: #fefefe;
-    --gray: #6c757d;
-    --light-grey: #eaeaea;
-    --light: #f8f9fa;
-    --gray-dark: #343a40;
-    --dark: #212529;
-    --principal-color:#004481;
-    --show: block;
-    --hidden: none;
-    --all-width: 100%;
-    --box: inset -15.5em 0 0 0 #004481,inset 15.5em 0 0 0 #00448199;
-    --backgroundtransparent: #0075be68;
-    --box-two: inset -.1em 0 0 0 #004481,inset .1em 0 0 0 #00448199;
-    --gray100: hsl(0,0%,100%);
-    --gray70: hsl(0,0%,70%);
-    --gray0: hsl(0,0%,0%);
-    --background: linear-gradient(to left, #36D1DC99 0%, #fefefe59 100%);
-/*  --background: linear-gradient(to left, #36D1DCc9, #36D1DC10);*/
-    --solid-bground: linear-gradient(to right, #0075be 0%, #004481 100%);
+  --brand-color: #004481;
+  --brand-second-color: #0075be;
+  --white: #fefefe;
+  --gray: #6c757d;
+  --light-grey: #eaeaea;
+  --light: #f8f9fa;
+  --gray-dark: #343a40;
+  --dark: #212529;
+  --principal-color: #004481;
+  --show: block;
+  --hidden: none;
+  --all-width: 100%;
+  --box: inset -15.5em 0 0 0 #004481, inset 15.5em 0 0 0 #00448199;
+  --backgroundtransparent: #0075be68;
+  --box-two: inset -0.1em 0 0 0 #004481, inset 0.1em 0 0 0 #00448199;
+  --gray100: hsl(0, 0%, 100%);
+  --gray70: hsl(0, 0%, 70%);
+  --gray0: hsl(0, 0%, 0%);
+  --background: linear-gradient(to left, #36d1dc99 0%, #fefefe59 100%);
+  /*  --background: linear-gradient(to left, #36D1DCc9, #36D1DC10);*/
+  --solid-bground: linear-gradient(to right, #0075be 0%, #004481 100%);
 }
 
 ::-webkit-scrollbar {
-    display: var(--hidden);
+  display: var(--hidden);
 }
 
-
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-	display: flex;
-	/*flex-grow: 1;*/
-	flex-direction: column;
-	background: url('https://www.lovingmypets.pro/favicons/logooldC.png') center / contain no-repeat;
-	min-height: 100dvh;
+  display: flex;
+  /*flex-grow: 1;*/
+  flex-direction: column;
+  background: url("https://www.lovingmypets.pro/favicons/logo.jpg") center /
+    contain no-repeat;
+  min-height: 100dvh;
 }
 
-h1,h2,h3 {
-	text-align: center;
-	margin-bottom: 20px;
+h1,
+h2,
+h3 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 button {
-	padding: 6px 12px;
-	cursor: pointer;
-	animation: all .4s ease-in-out;
-	border: none;
-	width: 80px;
-	margin: .1em;
-	overflow: hidden;
-	&:hover {
-		scale: 1.05;
-	}
+  padding: 6px 12px;
+  cursor: pointer;
+  animation: all 0.4s ease-in-out;
+  border: none;
+  width: 80px;
+  margin: 0.1em;
+  overflow: hidden;
+  &:hover {
+    scale: 1.05;
+  }
 
-	&:active {
-		scale: 0.92;
-	}
+  &:active {
+    scale: 0.92;
+  }
 }
 
 input {
-	border: none;
-	background-color: aliceblue;
+  border: none;
+  background-color: aliceblue;
 }
 
 textarea {
-	field-sizing: content;
+  field-sizing: content;
 }
 
 header {
-	flex-grow: .1;
-	max-width: 1800px;
-	padding: 0 40px;
+  flex-grow: 0.1;
+  max-width: 1800px;
+  padding: 0 40px;
 }
 
 main {
-	display: grid;
-	place-content: center;
-	flex-grow: 6;
-	max-width: 1800px;
-	padding: 0 40px;
-	/*border: 1px solid yellow;*/
-	/*margin: auto;*/
+  display: grid;
+  place-content: center;
+  flex-grow: 6;
+  max-width: 1800px;
+  padding: 0 40px;
+  /*border: 1px solid yellow;*/
+  /*margin: auto;*/
 }
 
 footer {
-	max-width: 1800px;
-	padding: 0 40px;
-	flex-grow: .1;
-	/*border: 1px solid red;*/
+  max-width: 1800px;
+  padding: 0 40px;
+  flex-grow: 0.1;
+  /*border: 1px solid red;*/
 }
 
 a {
-	text-decoration: none;
-	color: var(--gray);
-	transition: color 0.3s ease-in-out;
-	&:hover {
-		/*background: var(--box);*/
-		/*background: #2b2b2b;*/
-		color: var(--gray-dark);
-	}
+  text-decoration: none;
+  color: var(--gray);
+  transition: color 0.3s ease-in-out;
+  &:hover {
+    /*background: var(--box);*/
+    /*background: #2b2b2b;*/
+    color: var(--gray-dark);
+  }
 }
 
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 .nav {
-	width: 100%;
-	max-width: 1800px;
-	margin: 0 auto;
-	padding: 10px;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .nav__collapse {
-	/*border: 1px solid;*/
-	display: flex;
-	justify-content: flex-end;
+  /*border: 1px solid;*/
+  display: flex;
+  justify-content: flex-end;
 }
 
-.nav__menu, .nav__close {
-	display: none;
+.nav__menu,
+.nav__close {
+  display: none;
 }
 
 .nav__link {
-	display: flex;
-	font-size: 0.7rem;
-	/*padding: 30px;*/
+  display: flex;
+  font-size: 0.7rem;
+  /*padding: 30px;*/
 }
 
 .nav__items {
-	display: flex;
-	padding: 5px 10px;
-	min-width: 70px;
-	/*border: 1px solid green;*/
-	align-items: center;
-	a {
-		/*display: flex;*/
-		margin: auto;
-		/*border: 1px solid red;*/
-		/*justify-self: center;*/
-		/*align-self: center;*/
-	}
-
+  display: flex;
+  padding: 5px 10px;
+  min-width: 70px;
+  /*border: 1px solid green;*/
+  align-items: center;
+  a {
+    /*display: flex;*/
+    margin: auto;
+    /*border: 1px solid red;*/
+    /*justify-self: center;*/
+    /*align-self: center;*/
+  }
 }
 
 .body-card {
-	background: #fafafa;
-	padding: 15px 30px;
-	border-radius: 10px;
-	border: 2px solid;
-	margin-bottom: .2em;
+  background: #fafafa;
+  padding: 15px 30px;
+  border-radius: 10px;
+  border: 2px solid;
+  margin-bottom: 0.2em;
 }
 
 .form-group {
-	display: flex;
-	flex-direction: column;
-	margin: 10px;
-	gap: 0.6em;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  gap: 0.6em;
 }
 
 .copyright {
-	display: flex;
-	font-size: 0.6rem;
-	justify-content: center;
-	gap: .8em;
+  display: flex;
+  font-size: 0.6rem;
+  justify-content: center;
+  gap: 0.8em;
 }
 
-.content-btns div, .content-delete-btns div{
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	padding: 15px auto;
-	max-width: 500px;
+.content-btns div,
+.content-delete-btns div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px auto;
+  max-width: 500px;
 }
- 
+
 .hidden {
-	display: none;
+  display: none;
 }
 
+#preview {
+  margin-top: 10px;
+  max-width: 250px;
+  max-height: 250px;
+  display: none;
+  border: 1px solid #ccc;
+}
+.error {
+  color: red;
+}
