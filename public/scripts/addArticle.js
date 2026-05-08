@@ -280,7 +280,7 @@ function addArticle() {
             // formData.append("filename", formData.get("filename"));
       formData.append("link", formData.get("link"));
     } else {
-      let formData = new FormData();
+      formData = new FormData();
 
       for (let j = 0; j < newArticle.length; j++) {
         console.log(newArticle);
@@ -296,7 +296,7 @@ function addArticle() {
         formData.append("paragraph", articleParagraph);
 
         for (let i = 0; i < articleFiles.length; i++) {
-          formData.append("filename", articleFiles[i]);
+          formData.append("filename[]", articleFiles[i]);
         }
         formData.append("link", newArticle[0].link);
       }
