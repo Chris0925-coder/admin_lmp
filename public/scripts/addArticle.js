@@ -277,8 +277,9 @@ function addArticle() {
       formData = new FormData(formB);
       // formData.append("title", formData.get("title"));
       // formData.append("paragraph", formData.get("paragraph"));
-            // formData.append("filename", formData.get("filename"));
+      formData.append("filename", formData.get("filename"));
       formData.append("link", formData.get("link"));
+      // formData.get("filename")
     } else {
       formData = new FormData();
 
