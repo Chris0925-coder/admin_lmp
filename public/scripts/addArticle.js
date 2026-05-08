@@ -303,7 +303,7 @@ function addArticle() {
       formData.append('date', dateNow);
       formData.append("paragraphs", []);
     }
-
+    console.log(formData.get("filename"))
     let result = await fetch(urlAddArticle, {
       method: "POST",
       headers: {
