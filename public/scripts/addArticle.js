@@ -272,20 +272,21 @@ function addArticle() {
     
     // addArticleBTN.disabled = true;
 
-    let formData = new FormData();
-
-    formData.append('date', dateNow);
-    formData.append("paragraphs", []);
-    console.log(newArticle.length === 0);
+        // console.log(newArticle.length === 0);
     if (newArticle.length === 0) {
       formData = new FormData(formB);
-      formData.append("title", formData.get("title"));
-      formData.append("paragraph", formData.get("paragraph"));
+      // formData.append("title", formData.get("title"));
+      // formData.append("paragraph", formData.get("paragraph"));
       formData.append('date', dateNow);
       formData.append("paragraphs", []);
-      formData.append("filename", formData.get("filename"));
-      formData.append("link", formData.get("link"));
+      // formData.append("filename", formData.get("filename"));
+      // formData.append("link", formData.get("link"));
     } else {
+      let formData = new FormData();
+
+      formData.append('date', dateNow);
+      formData.append("paragraphs", []);
+
       for (let j = 0; j < newArticle.length; j++) {
         console.log(newArticle);
         let articleTitles = [newArticle[j].title];
