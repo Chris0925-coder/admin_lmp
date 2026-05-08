@@ -93,8 +93,8 @@ let articles = {
 };
 let newArticle = [];
 
-function addNewArticle() {
-  addNewArticleBTN.addEventListener("click", (e) => {
+function addNewArticle(e) {
+  
     e.preventDefault();
 
     let formData = new FormData(formB);
@@ -110,10 +110,10 @@ function addNewArticle() {
 
     input[2].value = "";
     textAreaPara[0].value = "";
-  });
+  // });
 }
-addNewArticle();
-
+// addNewArticle();
+addNewArticleBTN.addEventListener("click", addNewArticle);
 
 const dateNow = new Intl.DateTimeFormat("es-PA", opciones).format(d);
 
@@ -316,7 +316,7 @@ function addArticle() {
       .then((response) => {
 
         let res = response.json(); 
-        console.log(res);
+        console.log(response);
 
         if(response.status === 500) {
           message.innerText = res.message;
@@ -354,8 +354,7 @@ function addArticle() {
       .catch((error) => console.error("Error: ", error));
 
       console.log(result);
-        
-
+      
   });
     
 }
