@@ -1,14 +1,66 @@
 const addArticleBTN = document.getElementById("add-btn");
+const addNewArticleBTN = document.getElementById("add-new-article");
 const formB = document.getElementById("form-b");
 const formUpdate = document.getElementById("form-update");
+const fileInput = document.getElementById("filename");
 const token = getCookie("token");
-// const btnAddParagraph = document.getElementById("add-paragraph");
-// const btnAddList = document.getElementById("add-list");
-const textAreaPara = document.getElementsByName("paragraph");
 
-// const files = fileInput.files;
-const urlAddArticle =
-  "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
+let imgs = [];
+const reader = new FileReader();
+fileInput.addEventListener("change", function (event) {
+  const file = event.target.files[0];
+  // const preview = document.getElementById("preview");
+  // const errorMsg = document.getElementById("errorMsg");
+
+  // Reset previous state
+  // preview.style.display = "none";
+  // preview.src = "";
+  // errorMsg.textContent = "";
+
+  if (!file) {
+    return; // No file selected
+  }
+
+  // Validate file type
+  if (!file.type.startsWith("image/")) {
+    errorMsg.textContent = "Please select a valid image file.";
+    return;
+  }
+
+  // Validate file size (example: max 2MB)
+  const maxSizeMB = 4.5;
+  if (file.size > maxSizeMB * 1024 * 1024) {
+    errorMsg.textContent = `File size must be less than ${maxSizeMB} MB.`;
+    return;
+  }
+
+  // Create a preview using FileReader
+  
+  reader.onload = function (e) {
+    preview.src = e.target.result;
+    preview.style.display = "block";
+  };
+  reader.onerror = function () {
+    errorMsg.textContent = "Error reading file.";
+  };
+  // reader.readAsDataURL(file);
+  reader.readAsDataURL(file);
+  // console.log();
+});
+
+const btnAddParagraph = document.getElementById("add-paragraph");
+const btnAddList = document.getElementById("add-list");
+
+let paragraphs = [];
+
+let blogList = [];
+
+const urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
+
+// const blobUrl =
+// "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
+// "/webs";
+// "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
 
 const deleteBTN = document.getElementById("content-delete-btns");
 // const addForm = document.getElementById("form");
@@ -18,21 +70,44 @@ let item2 = deleteBTN.querySelector(".item:nth-child(2)");
 let newDiv = document.createElement("div");
 let newDivDelete = document.createElement("div");
 
-let paragraphs = [];
-
-// let blogList = [];
-
 const opciones = {
-    timeZone: "America/Panama",
-    year: "numeric",
-    weekday: "short",
-    day: "numeric",
-    month: "short",
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true
+  timeZone: "America/Panama",
+  year: "numeric",
+  weekday: "short",
+  day: "numeric",
+  month: "short",
+  hour: "numeric",
+  minute: "numeric",
+  hour12: true,
 };
 
+let articles = {
+  title: "",
+  paragraph: "",
+  filename: "",
+  origin: "",
+  link: "",
+  paragraphs: "",
+};
+let newArticle = [];
+
+function addNewArticle() {
+  addNewArticleBTN.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    let formData = new FormData(formB);
+    articles = {
+      title: formData.get("title"),
+      paragraph: formData.get("paragraph"),
+      filename: formData.get("filename"),
+      origin: formData.get("origin"),
+      link: formData.get("link"),
+      paragraphs: "",
+    };    
+    newArticle.push(articles);
+  });
+}
+addNewArticle();
 const dateNow = new Intl.DateTimeFormat("es-PA", opciones).format(d);
 
 // btnAddParagraph.addEventListener("click", (e) => {
@@ -40,7 +115,6 @@ const dateNow = new Intl.DateTimeFormat("es-PA", opciones).format(d);
 //   paragraphs.push(`<p>${textAreaPara[0].value}</p>`);
 
 //   textAreaPara[0].value = "";
-
 // });
 
 // btnAddList.addEventListener("click", (e) => {
@@ -51,32 +125,35 @@ const dateNow = new Intl.DateTimeFormat("es-PA", opciones).format(d);
 //     listSplit = textAreaPara[0].value.split(",");
 
 //   listSplit.forEach((l) => {
-//     let ul = `<li>${l}</li>`;
+//     console.log(l);
 
+//     let ul = `<li>${l}</li>`;
+//     console.log(ul);
 //     paragraphs.push(ul);
 //   });
 
 //   textAreaPara[0].value = "";
+
 // });
 
 async function deleteArticle(id) {
-      let result = await fetch(`${urlAddArticle}/${id}`, {
-        method: "DELETE",
+  let result = await fetch(`${urlAddArticle}/${id}`, {
+    method: "DELETE",
 
-        body: JSON.stringify({
-          id: id,
-        }),
-      })
-        .then((response) => {
-          if (response.ok) {
-            alert(`DELETE article successfully!`);
-            window.location.reload();
-          } else {
-            alert("Failed to delete the form submission.");
-            window.location.reload();
-          }
-        })
-        .catch((error) => console.error("Error:", error));
+    body: JSON.stringify({
+      id: id,
+    }),
+  })
+    .then((response) => {
+      if (response.ok) {
+        alert(`DELETE article successfully!`);
+        window.location.reload();
+      } else {
+        alert("Failed to delete the form submission.");
+        window.location.reload();
+      }
+    })
+    .catch((error) => console.error("Error:", error));
 }
 
 // function content(id, title) {
@@ -84,7 +161,7 @@ async function deleteArticle(id) {
 //   newDiv.innerHTML += `
 //             <button value='${id}'>Update: ${title}</button>
 //           `;
-  //   console.log(newDiv);
+//   console.log(newDiv);
 //   updateBTN.insertBefore(newDiv, item);
 //   newDiv.addEventListener("click", (e) => {
 
@@ -94,57 +171,53 @@ async function deleteArticle(id) {
 //   });
 // }
 
-
-
 async function getHome() {
-  let result = await fetch(urlAddArticle, {
+  let result = await fetch(`${urlAddArticle}/article`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
     },
-  }).then((resp) => resp.json())
-  .catch((error) => {
-        console.error("Error:", error);
-        message.style.color = "#990000";
-        message.innerText = error;
-      });
+  })
+    .then((resp) => resp.json())
+    .catch((error) => {
+      console.error("Error:", error);
+      message.style.color = "#990000";
+      message.innerText = error;
+    });
 
-  if(result.message === "Invalid token") {
+  if (result.message === "Invalid token") {
     removeCookie("token");
     window.location.reload();
   }
 
   result.forEach((btn) => {
+    let parse = btn.title;
 
+    if (!btn.title.includes("object")) parse = JSON.parse(btn.title)[0];
     newDiv.innerHTML += `
-            <button value='${btn.id}'>Update: ${btn.title}</button>
+            <button value='${btn.id}'>Update: ${parse}</button>
           `;
 
     updateBTN.insertBefore(newDiv, item);
 
     newDivDelete.innerHTML += `
-            <button value='${btn.id}'>Delete: ${btn.title}</button>
+            <button value='${btn.id}'>Delete: ${parse}</button>
           `;
 
     deleteBTN.insertBefore(newDivDelete, item2);
   });
 }
 
-
-
 // deleteArticle();
-// addArticle();
+
 getHome();
 
 async function update(id) {
+  let formData = new FormData(formUpdate);
 
-  let formData = new FormData(formB);
-
-  formData.append("paragraphs", JSON.stringify(paragraphs));
-
-  formData.append('update', dateNow);
+  formData.append("update", dateNow);
 
   let result = await fetch(`${urlAddArticle}/${id}`, {
     method: "PUT",
@@ -159,23 +232,20 @@ async function update(id) {
         alert("Update article successfully!");
         window.location.reload();
       } else {
-
         alert("Failed to update the form submission.");
         window.location.reload();
-
       }
     })
     .catch((error) => console.error("Error:", error));
-  
 }
 
-updateBTN.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (e.target.tagName === "BUTTON") {
-    e.target.disabled = true;
-    update(e.target.value);
-  }
-});
+// updateBTN.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   if (e.target.tagName === "BUTTON") {
+//     e.target.disabled = true;
+//     update(e.target.value);
+//   }
+// });
 
 deleteBTN.addEventListener("click", (e) => {
   e.preventDefault();
@@ -188,91 +258,77 @@ deleteBTN.addEventListener("click", (e) => {
 function addArticle() {
   formB.addEventListener("submit", async function (event) {
     event.preventDefault();
-    addArticleBTN.disabled = true;
-    let formData = new FormData(formB);
 
-    formData.append("paragraphs", JSON.stringify(paragraphs));
+    // addArticleBTN.disabled = true;
 
-    formData.append('date', dateNow);
+    let formData = new FormData();
 
-    let result = await fetch(urlAddArticle, {
+    // console.log(newArticle.length === 0);
+    if (newArticle.length === 0) {
+      formData = new FormData(formB);
+      formData.append("title", formData.get("title"));
+      formData.append("paragraph", formData.get("paragraph"));
+      formData.append("filename", formData.get("filename"));
+      formData.append("link", formData.get("link"));
+    } else {
+      for (let j = 0; j < newArticle.length; j++) {
+        let articleTitles = [newArticle[j].title];
+
+        // console.log(articleTitles);
+
+        let articleParagraph = [newArticle[j].paragraph];
+        // console.log(articleParagraph);
+        let articleFiles = [newArticle[j].filename];
+        // console.log(articleFiles);
+        formData.append("title", articleTitles);
+        formData.append("paragraph", articleParagraph);
+
+        for (let i = 0; i < articleFiles.length; i++) {
+          formData.append("filename[]", articleFiles[i]);
+        }
+      }
+
+      formData.append("link", newArticle[0].link);
+    }
+
+    if (dateNow === null) dateNow = "2026";
+
+    let result = await fetch(`${urlAddArticle}`, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
-      },
+
       body: formData,
     })
-      .then((response) => {
-          let msg = response.json();
-
-        if(response.status === 413) {
+      .then((response) => await response.json())
+      .catch((error) => console.error("Error: ", error));
+  });
+    console.log(result);
+        if(result.status === 413) {
           message.innerText = "File size too large. MAX SIZE = 4.5mb";
           alert("File size too large. MAX SIZE = 4.5mb");
           window.location.reload();
         }
 
         
-        if (msg.message === "LIMIT_FILE_SIZE") {
+        if (result.message === "LIMIT_FILE_SIZE") {
             alert("File size too large. MAX SIZE = 4.5mb");
             window.location.reload();
         }
 
-        if (msg.message === "Invalid token") {
+        if (result.message === "Invalid token") {
           removeCookie("token");
           sectionB.setAttribute("class", "hidden");
           sectionA.removeAttribute("class", "hidden");
-          return (message.innerText = msg.message + " Inicia sesion");
+          return (message.innerText = result.message + " Inicia sesion");
         }
 
-        if (response.ok) {
+        console.log(result.ok);
+
+        if (result.ok) {
           message.innerText = "Upload Successfully";
           alert("Upload Successfully");
           window.location.reload();
         }
 
-      })
-      .catch((error) => console.error("Error:", error));
 
-      //  {
-      //   console.log(response);
-      //   if (response.ok) {
-      //     alert("Added article successfully!");
-      //     window.location.reload();
-      //   } else {
-      //     alert("Failed to send the form submission.");
-      //     window.location.reload();
-      //   }
-      // }
-
-      // console.log(result);
-      // console.log(result.message);
-
-
-    // if (result.message === "LIMIT_FILE_SIZE") {
-    //     alert("File size too large. MAX SIZE = 4.5mb");
-    //     window.location.reload();
-    // }
-
-    // if (result.message === "Invalid token") {
-    //   removeCookie("token");
-    //   sectionB.setAttribute("class", "hidden");
-    //   sectionA.removeAttribute("class", "hidden");
-    //   return (message.innerText = result.message + " Inicia sesion");
-    // }
-
-    //    console.log(result);
-    // if (result.message === "Upload Successfully") {
-    //   message.innerText = result.message;
-    //   alert(result.message);
-    //   window.location.reload();
-    // } else {
-    //   message.innerText = result.message;
-    //   alert(result.message);
-    //   window.location.reload();
-    // }
-  });
 }
-
 addArticle();
