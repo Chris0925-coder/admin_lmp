@@ -275,13 +275,14 @@ function addArticle() {
     let formData = new FormData();
 
     formData.append('date', dateNow);
-
+    formData.append("paragraphs", []);
     console.log(newArticle.length === 0);
     if (newArticle.length === 0) {
       formData = new FormData(formB);
       formData.append("title", formData.get("title"));
       formData.append("paragraph", formData.get("paragraph"));
-      formData.append("paragraphs", "");
+      formData.append('date', dateNow);
+      formData.append("paragraphs", []);
       formData.append("filename", formData.get("filename"));
       formData.append("link", formData.get("link"));
     } else {
