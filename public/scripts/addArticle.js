@@ -265,8 +265,6 @@ deleteBTN.addEventListener("click", (e) => {
 });
 
 function addArticle() {
-  addNewArticle();
-
   formB.addEventListener("submit", async function (event) {
     event.preventDefault();
     
