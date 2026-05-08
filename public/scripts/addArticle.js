@@ -329,7 +329,7 @@ function addArticle() {
           return (message.innerText = res.message + " Inicia sesion");
         }
 
-        console.log(result.ok);
+        console.log(response.ok);
 
         if (response.ok) {
           message.innerText = "Upload Successfully";
