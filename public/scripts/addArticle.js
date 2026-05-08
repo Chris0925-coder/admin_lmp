@@ -318,6 +318,7 @@ function addArticle() {
 
         let res = response.json(); 
         console.log(response);
+        console.log(res);
 
         if(response.status === 500) {
           message.innerText = res.message;
