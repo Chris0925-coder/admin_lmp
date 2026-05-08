@@ -273,6 +273,7 @@ function addArticle() {
 
         // console.log(newArticle.length === 0);
     if (newArticle.length === 0) {
+      console.log("single");
       formData = new FormData(formB);
       // formData.append("title", formData.get("title"));
       // formData.append("paragraph", formData.get("paragraph"));
@@ -280,6 +281,7 @@ function addArticle() {
       formData.append("link", formData.get("link"));
       // formData.get("filename")
     } else {
+      console.log("array");
       formData = new FormData();
 
       for (let j = 0; j < newArticle.length; j++) {
