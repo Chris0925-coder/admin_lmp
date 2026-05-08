@@ -3,6 +3,7 @@ const addNewArticleBTN = document.getElementById("add-new-article");
 const formB = document.getElementById("form-b");
 const formUpdate = document.getElementById("form-update");
 const fileInput = document.getElementById("filename");
+const input = document.getElementsByTagName("input");
 const token = getCookie("token");
 
 let imgs = [];
@@ -48,12 +49,12 @@ fileInput.addEventListener("change", function (event) {
   // console.log();
 });
 
-const btnAddParagraph = document.getElementById("add-paragraph");
-const btnAddList = document.getElementById("add-list");
+// const btnAddParagraph = document.getElementById("add-paragraph");
+// const btnAddList = document.getElementById("add-list");
 
 let paragraphs = [];
 
-let blogList = [];
+// let blogList = [];
 
 const urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
 
@@ -105,9 +106,14 @@ function addNewArticle() {
       paragraphs: "",
     };    
     newArticle.push(articles);
+
+    input[2].value = "";
+    textAreaPara[0].value = "";
   });
 }
+
 addNewArticle();
+
 const dateNow = new Intl.DateTimeFormat("es-PA", opciones).format(d);
 
 // btnAddParagraph.addEventListener("click", (e) => {
@@ -258,6 +264,7 @@ deleteBTN.addEventListener("click", (e) => {
 function addArticle() {
   formB.addEventListener("submit", async function (event) {
     event.preventDefault();
+    addNewArticle();
 
     // addArticleBTN.disabled = true;
 
