@@ -277,15 +277,10 @@ function addArticle() {
       formData = new FormData(formB);
       // formData.append("title", formData.get("title"));
       // formData.append("paragraph", formData.get("paragraph"));
-      formData.append('date', dateNow);
-      formData.append("paragraphs", []);
-      // formData.append("filename", formData.get("filename"));
-      // formData.append("link", formData.get("link"));
+            // formData.append("filename", formData.get("filename"));
+      formData.append("link", formData.get("link"));
     } else {
       let formData = new FormData();
-
-      formData.append('date', dateNow);
-      formData.append("paragraphs", []);
 
       for (let j = 0; j < newArticle.length; j++) {
         console.log(newArticle);
@@ -301,11 +296,12 @@ function addArticle() {
         formData.append("paragraph", articleParagraph);
 
         for (let i = 0; i < articleFiles.length; i++) {
-          formData.append("filename", articleFiles[i]);
+          formData.append("filename[]", articleFiles[i]);
         }
+        formData.append("link", newArticle[0].link);
       }
-
-      formData.append("link", newArticle[0].link);
+      formData.append('date', dateNow);
+      formData.append("paragraphs", []);
     }
 
     let result = await fetch(urlAddArticle, {
@@ -362,6 +358,5 @@ function addArticle() {
   });
     
 }
-
 
 addArticle();
