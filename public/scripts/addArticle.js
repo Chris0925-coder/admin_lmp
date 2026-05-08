@@ -274,11 +274,14 @@ function addArticle() {
 
     let formData = new FormData();
 
+    formData.append('date', dateNow);
+
     console.log(newArticle.length === 0);
     if (newArticle.length === 0) {
       formData = new FormData(formB);
       formData.append("title", formData.get("title"));
       formData.append("paragraph", formData.get("paragraph"));
+      formData.append("paragraphs", "";
       formData.append("filename", formData.get("filename"));
       formData.append("link", formData.get("link"));
     } else {
@@ -302,8 +305,6 @@ function addArticle() {
 
       formData.append("link", newArticle[0].link);
     }
-
-    if (dateNow === null) dateNow = "2026";
 
     let result = await fetch(urlAddArticle, {
       method: "POST",
