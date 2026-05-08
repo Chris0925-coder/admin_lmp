@@ -307,14 +307,13 @@ function addArticle() {
     })
       .then((response) => await response.json())
       .catch((error) => console.error("Error: ", error));
-  });
-    console.log(result);
+
+      console.log(result);
         if(result.status === 413) {
           message.innerText = "File size too large. MAX SIZE = 4.5mb";
           alert("File size too large. MAX SIZE = 4.5mb");
           window.location.reload();
         }
-
         
         if (result.message === "LIMIT_FILE_SIZE") {
             alert("File size too large. MAX SIZE = 4.5mb");
@@ -336,6 +335,7 @@ function addArticle() {
           window.location.reload();
         }
 
-
+  });
+    
 }
 addArticle();
