@@ -326,7 +326,7 @@ function addArticle() {
           removeCookie("token");
           sectionB.setAttribute("class", "hidden");
           sectionA.removeAttribute("class", "hidden");
-          return (message.innerText = result.message + " Inicia sesion");
+          return (message.innerText = res.message + " Inicia sesion");
         }
 
         console.log(result.ok);
