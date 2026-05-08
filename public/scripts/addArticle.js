@@ -192,7 +192,6 @@ async function getHome() {
       console.error("Error:", error);
       message.style.color = "#990000";
       message.innerText = error;
-      removeCookie("token");
     });
 
 
@@ -278,7 +277,7 @@ function addArticle() {
       // formData.append("title", formData.get("title"));
       // formData.append("paragraph", formData.get("paragraph"));
       // formData.append("filename", formData.get("filename"));
-      // formData.append("link", formData.get("link"));
+      formData.append("link", formData.get("link"));
       // formData.get("filename")
     } else {
       formData = new FormData();
@@ -301,9 +300,9 @@ function addArticle() {
         }
         formData.append("link", newArticle[0].link);
       }
-      formData.append('date', dateNow);
-      formData.append("paragraphs", []);
     }
+    formData.append('date', dateNow);
+    formData.append("paragraphs", []);
     console.log(formData.get("filename"))
     let result = await fetch(urlAddArticle, {
       method: "POST",
