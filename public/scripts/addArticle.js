@@ -300,7 +300,10 @@ function addArticle() {
         }
         formData.append("link", newArticle[0].link);
       }
+      urlAddArticle = urlAddArticle+"/array";
     }
+
+    console.log(urlAddArticle);
     formData.append('date', dateNow);
     formData.append("paragraphs", []);
     console.log(formData.get("filename"))
