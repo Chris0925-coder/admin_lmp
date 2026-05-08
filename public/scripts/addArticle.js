@@ -178,7 +178,7 @@ async function deleteArticle(id) {
 // }
 
 async function getHome() {
-  let result = await fetch(`${urlAddArticle}/article`, {
+  let result = await fetch(urlAddArticle, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -191,7 +191,10 @@ async function getHome() {
       console.error("Error:", error);
       message.style.color = "#990000";
       message.innerText = error;
+      removeCookie("token");
     });
+
+
 
   if (result.message === "Invalid token") {
     removeCookie("token");
@@ -300,7 +303,7 @@ function addArticle() {
 
     if (dateNow === null) dateNow = "2026";
 
-    let result = await fetch(`${urlAddArticle}`, {
+    let result = await fetch(urlAddArticle, {
       method: "POST",
 
       body: formData,
