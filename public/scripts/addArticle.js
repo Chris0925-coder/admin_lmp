@@ -304,7 +304,10 @@ function addArticle() {
 
     let result = await fetch(urlAddArticle, {
       method: "POST",
-
+      Authorization: `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Methods": "GET,HEAD,POST,OPTIONS",
+      },
       body: formData,
     })
       .then((response) => {
