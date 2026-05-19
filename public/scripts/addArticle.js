@@ -305,12 +305,13 @@ function addArticle() {
           console.log(articleFiles);
           formData.append("filename", articleFiles);
         // }
+          formData.append("link", newArticle[0].link);
       }
       urlAddArticle = urlAddArticle+"/array";
     }
 
     // console.log(urlAddArticle);
-    formData.append("link", newArticle[0].link);
+    
     formData.append('date', dateNow);
     formData.append("paragraphs", []);
     console.log(formData);
