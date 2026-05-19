@@ -286,11 +286,11 @@ function addArticle() {
 
       for (let j = 0; j < newArticle.length; j++) {
         console.log(newArticle);
-        let articleTitles = newArticle[j].title;
+        let articleTitles = [newArticle[j].title];
 
         console.log(articleTitles);
 
-        let articleParagraph = newArticle[j].paragraph;
+        let articleParagraph = [newArticle[j].paragraph];
         console.log(articleParagraph);
         let articleFiles = newArticle[j].filename;
         console.log(articleFiles);
@@ -299,8 +299,8 @@ function addArticle() {
         console.log(newArticle.length);
 
         for (let i = 0; i < newArticle.length; i++) {
-          console.log(articleFiles.name[i]);
-          formData.append("filename", articleFiles.name[i]);
+          console.log(articleFiles[i]);
+          formData.append("filename", articleFiles[i]);
         }
         formData.append("link", newArticle[0].link);
       }
