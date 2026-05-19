@@ -308,16 +308,18 @@ function addArticle() {
           let s = {
             title: element.title,
             paragraph: element.paragraph,
+            filename: element.filename,
           }
 
           console.log(s);
 
-          formData.append("title", s.title);
-          formData.append("paragraph", s.paragraph);
+          formData.append("title", s[index].title);
+          formData.append("paragraph", s[index].paragraph);
+          formData.append("filename", s[index].filename);
 
        })
-          console.log(articleFiles);
-          formData.append("filename", articleFiles);
+          // console.log(articleFiles);
+          // formData.append("filename", articleFiles);
        
           formData.append("link", newArticle[0].link);
       // }
