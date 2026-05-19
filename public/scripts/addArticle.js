@@ -293,12 +293,12 @@ function addArticle() {
         let articleParagraph = [newArticle[j].paragraph];
         console.log(typeof articleParagraph);
         let articleFiles = [newArticle[j].filename];
-        // console.log(articleFiles);
+        console.log(articleFiles);
         formData.append("title", articleTitles);
         formData.append("paragraph", articleParagraph);
 
         for (let i = 0; i < articleFiles.length; i++) {
-          formData.append("filename[]", articleFiles[i]);
+          formData.append("filename", articleFiles[i]);
         }
         formData.append("link", newArticle[0].link);
       }
@@ -308,7 +308,7 @@ function addArticle() {
     console.log(urlAddArticle);
     formData.append('date', dateNow);
     formData.append("paragraphs", []);
-    console.log(formData.get("filename[]"));
+    console.log(formData.get("filename"));
     let result = await fetch(urlAddArticle, {
       method: "POST",
       headers: {
