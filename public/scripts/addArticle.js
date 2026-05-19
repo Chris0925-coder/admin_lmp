@@ -288,17 +288,17 @@ function addArticle() {
         console.log(newArticle);
         let articleTitles = [newArticle[j].title];
 
-        console.log(typeof articleTitles);
+        console.log(articleTitles);
 
         let articleParagraph = [newArticle[j].paragraph];
-        console.log(typeof articleParagraph);
+        console.log(articleParagraph);
         let articleFiles = [newArticle[j].filename];
         console.log(articleFiles[1]);
         formData.append("title", articleTitles);
         formData.append("paragraph", articleParagraph);
-        console.log(articleFiles.length);
+        console.log(newArticle.length);
 
-        for (let i = 0; i < articleFiles.length; i++) {
+        for (let i = 0; i < newArticle.length; i++) {
           console.log(articleFiles[i]);
           formData.append("filename", articleFiles[i]);
         }
