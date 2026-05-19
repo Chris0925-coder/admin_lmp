@@ -288,7 +288,7 @@ function addArticle() {
       
 
       for (let j = 0; j < newArticle.length; j++) {
-        console.log(newArticle[j].title);
+        console.log(Array(newArticle[j].title));
         let articleTitles = newArticle[j].title;
 
         console.log(articleTitles);
