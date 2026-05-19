@@ -293,11 +293,13 @@ function addArticle() {
         let articleParagraph = [newArticle[j].paragraph];
         console.log(typeof articleParagraph);
         let articleFiles = [newArticle[j].filename];
-        console.log(articleFiles);
+        console.log(articleFiles[1]);
         formData.append("title", articleTitles);
         formData.append("paragraph", articleParagraph);
+        console.log(articleFiles.length);
 
         for (let i = 0; i < articleFiles.length; i++) {
+          console.log(articleFiles[i]);
           formData.append("filename", articleFiles[i]);
         }
         formData.append("link", newArticle[0].link);
