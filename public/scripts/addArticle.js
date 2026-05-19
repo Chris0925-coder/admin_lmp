@@ -297,9 +297,9 @@ function addArticle() {
         formData.append("title", articleTitles);
         formData.append("paragraph", articleParagraph);
 
-        // for (let i = 0; i < articleFiles.length; i++) {
+        for (let i = 0; i < articleFiles.length; i++) {
           formData.append("filename", articleFiles);
-        // }
+        }
         formData.append("link", newArticle[0].link);
       }
       urlAddArticle = urlAddArticle+"/array";
