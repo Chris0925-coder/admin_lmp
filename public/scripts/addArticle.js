@@ -316,8 +316,8 @@ function addArticle() {
           console.log(s.filename);
 
 
-          formData.append("title", element.title);
-          formData.append("paragraph", element.paragraph);
+          formData.append("title", newArticle[index].title);
+          formData.append("paragraph", newArticle[index].paragraph);
           formData.append("filename", element.filename);
 
        })
