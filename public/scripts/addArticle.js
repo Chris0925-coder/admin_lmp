@@ -304,20 +304,26 @@ function addArticle() {
       //   console.log(newArticle.length);
 
        newArticle.forEach((element, index) => {
+        let titles = [];
+        let paragraphs = [];
+
         console.log(element, index);
           let s = {
             title: element.title,
             paragraph: element.paragraph,
             filename: element.filename,
           }
-          console.log(s);
+
+          titles.push(newArticle[index].title);
+          paragraphs.push(newArticle[index].paragraph)
+          console.log(titles);
           console.log(newArticle[index].title);
           console.log(newArticle[index].paragraph);
           console.log(s.filename);
 
 
-          formData.append("title", newArticle[index].title);
-          formData.append("paragraph", newArticle[index].paragraph);
+          formData.append("title", titles);
+          formData.append("paragraph", paragraphs);
           formData.append("filename", element.filename);
 
        })
