@@ -288,10 +288,10 @@ function addArticle() {
         console.log(newArticle);
         let articleTitles = [newArticle[j].title];
 
-        console.log(articleTitles);
+        console.log(typeof articleTitles);
 
         let articleParagraph = [newArticle[j].paragraph];
-        console.log(articleParagraph);
+        console.log(typeof articleParagraph);
         let articleFiles = [newArticle[j].filename];
         // console.log(articleFiles);
         formData.append("title", articleTitles);
@@ -308,7 +308,7 @@ function addArticle() {
     console.log(urlAddArticle);
     formData.append('date', dateNow);
     formData.append("paragraphs", []);
-    console.log(formData.get("filename"))
+    console.log(formData.get("filename[]"));
     let result = await fetch(urlAddArticle, {
       method: "POST",
       headers: {
