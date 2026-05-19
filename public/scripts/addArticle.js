@@ -305,15 +305,16 @@ function addArticle() {
 
        newArticle.map((element, index) => {
         console.log(element.title, index);
-        console.log(element.title, index);
-
           let s = {
             title: element.title,
             paragraph: element.paragraph,
             filename: element.filename,
           }
 
-          console.log(s);
+          console.log(s.title);
+          console.log(s.paragraph);
+          console.log(s.filename);
+
 
           formData.append("title", s.title);
           formData.append("paragraph", s.paragraph);
