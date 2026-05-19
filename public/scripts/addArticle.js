@@ -92,12 +92,12 @@ let articles = {
   paragraphs: "",
 };
 let newArticle = [];
-
+let formData = new FormData();
 function addNewArticle(e) {
   
     e.preventDefault();
 
-    let formData = new FormData(formB);
+    // let formData = new FormData(formB);
     articles = {
       title: formData.get("title"),
       paragraph: formData.get("paragraph"),
@@ -270,7 +270,7 @@ function addArticle() {
   formB.addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    let formData = new FormData();
+    // let formData = new FormData();
     
     // addArticleBTN.disabled = true;
 
