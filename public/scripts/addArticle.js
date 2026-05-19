@@ -292,8 +292,8 @@ function addArticle() {
 
         let articleParagraph = [newArticle[j].paragraph];
         console.log(articleParagraph);
-        let articleFiles = [newArticle[j].filename];
-        console.log(articleFiles[1]);
+        let articleFiles = [newArticle[j].filename.name];
+        console.log(articleFiles);
         formData.append("title", articleTitles);
         formData.append("paragraph", articleParagraph);
         console.log(newArticle.length);
