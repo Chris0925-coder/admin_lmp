@@ -304,8 +304,8 @@ function addArticle() {
       //   console.log(newArticle.length);
 
        newArticle.forEach((element, index) => {
-        let titles = [element.title];
-        let paragraphs = [element.paragraph];
+        let titles += element.title;
+        let paragraphs += element.paragraph;
 
         console.log(element, index);
           let s = {
