@@ -304,8 +304,8 @@ function addArticle() {
       //   console.log(newArticle.length);
 
        newArticle.map((element, index) => {
-        console.log(element[2].title, index);
-        console.log(element[1].title, index);
+        console.log(element.title, index);
+        console.log(element.title, index);
 
           let s = {
             title: element.title,
