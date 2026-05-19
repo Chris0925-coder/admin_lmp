@@ -265,9 +265,12 @@ deleteBTN.addEventListener("click", (e) => {
 
 
 
+
 function addArticle() {
   formB.addEventListener("submit", async function (event) {
     event.preventDefault();
+
+    let formData = new FormData();
     
     // addArticleBTN.disabled = true;
 
@@ -282,7 +285,7 @@ function addArticle() {
       // formData.get("filename")
     } else {
       console.log("array");
-      formData = new FormData();
+      
 
       for (let j = 0; j < newArticle.length; j++) {
         console.log(newArticle[j].title);
@@ -302,7 +305,6 @@ function addArticle() {
           console.log(articleFiles);
           formData.append("filename", articleFiles);
         // }
-        
       }
       urlAddArticle = urlAddArticle+"/array";
     }
