@@ -92,12 +92,12 @@ let articles = {
   paragraphs: "",
 };
 let newArticle = [];
-let formData = new FormData();
+// let formData = new FormData();
 function addNewArticle(e) {
   
     e.preventDefault();
 
-    // let formData = new FormData(formB);
+    let formData = new FormData(formB);
     articles = {
       title: formData.get("title"),
       paragraph: formData.get("paragraph"),
@@ -108,13 +108,15 @@ function addNewArticle(e) {
     };    
     newArticle.push(articles);
 
+    console.log(newArticle);
+
     input[2].value = "";
     textAreaPara[0].value = "";
   // });
 }
 // addNewArticle();
-addNewArticleBTN.addEventListener("click", addNewArticle);
 
+addNewArticleBTN.addEventListener("click", addNewArticle);
 const dateNow = new Intl.DateTimeFormat("es-PA", opciones).format(d);
 
 // btnAddParagraph.addEventListener("click", (e) => {
@@ -285,7 +287,7 @@ function addArticle() {
       // formData.get("filename")
     } else {
       console.log("array");
-      
+      formData = new FormData();
 
       // for (let j = 0; j < newArticle.length; j++) {
       //   console.log(Array(newArticle[j].title));
@@ -326,7 +328,7 @@ function addArticle() {
     
     formData.append('date', dateNow);
     formData.append("paragraphs", []);
-    console.log(formData);
+    // console.log(formData);
     let result = await fetch(urlAddArticle, {
       method: "POST",
       headers: {
@@ -384,3 +386,5 @@ function addArticle() {
 }
 
 addArticle();
+
+
