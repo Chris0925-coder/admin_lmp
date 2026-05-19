@@ -304,7 +304,9 @@ function addArticle() {
       //   console.log(newArticle.length);
 
        newArticle.map((element, index) => {
-        console.log(element, index);
+        console.log(element[2].title, index);
+        console.log(element[1].title, index);
+
           let s = {
             title: element.title,
             paragraph: element.paragraph,
@@ -313,9 +315,9 @@ function addArticle() {
 
           console.log(s);
 
-          formData.append("title", s[index].title);
-          formData.append("paragraph", s[index].paragraph);
-          formData.append("filename", s[index].filename);
+          formData.append("title", s.title);
+          formData.append("paragraph", s.paragraph);
+          formData.append("filename", s.filename);
 
        })
           // console.log(articleFiles);
