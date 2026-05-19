@@ -57,7 +57,7 @@ let paragraphs = [];
 
 // let blogList = [];
 
-const urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
+let urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
 
 // const blobUrl =
 // "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
