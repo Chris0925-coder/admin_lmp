@@ -310,9 +310,9 @@ function addArticle() {
             paragraph: element.paragraph,
             filename: element.filename,
           }
-
-          console.log(s.title);
-          console.log(s.paragraph);
+          console.log(s);
+          console.log(Array(s.title));
+          console.log(Array(s.paragraph));
           console.log(s.filename);
 
 
