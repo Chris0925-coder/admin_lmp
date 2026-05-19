@@ -287,26 +287,38 @@ function addArticle() {
       console.log("array");
       
 
-      for (let j = 0; j < newArticle.length; j++) {
-        console.log(Array(newArticle[j].title));
-        let articleTitles = Array(newArticle[j].title)[0];
+      // for (let j = 0; j < newArticle.length; j++) {
+      //   console.log(Array(newArticle[j].title));
+      //   let articleTitles = newArticle[j].title;
 
-        console.log(articleTitles);
+      //   console.log(articleTitles);
 
-        let articleParagraph = newArticle[j].paragraph;
-        console.log(articleParagraph);
-        let articleFiles = newArticle[j].filename;
-        console.log(articleFiles);
-        formData.append("title", articleTitles);
-        formData.append("paragraph", articleParagraph);
-        console.log(newArticle.length);
+      //   let articleParagraph = newArticle[j].paragraph;
+      //   console.log(articleParagraph);
+      //   let articleFiles = newArticle[j].filename;
+      //   console.log(articleFiles);
+      //   formData.append("title", articleTitles);
+      //   formData.append("paragraph", articleParagraph);
+      //   console.log(newArticle.length);
 
-        // for (let i = 0; i < newArticle.length; i++) {
+       newArticle.map((element, index) => {
+        console.log(element, index);
+          let s = {
+            title: element[index].title,
+            paragraph: element[index].paragraph,
+          }
+
+          console.log(s);
+
+          formData.append("title", s.title);
+          formData.append("paragraph", s.paragraph);
+
+       })
           console.log(articleFiles);
           formData.append("filename", articleFiles);
-        // }
+       
           formData.append("link", newArticle[0].link);
-      }
+      // }
       urlAddArticle = urlAddArticle+"/array";
     }
 
