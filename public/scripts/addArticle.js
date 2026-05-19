@@ -311,8 +311,8 @@ function addArticle() {
             filename: element.filename,
           }
           console.log(s);
-          console.log(Array(s.title));
-          console.log(Array(s.paragraph));
+          console.log(newArticle[index].title);
+          console.log(newArticle[index].paragraph);
           console.log(s.filename);
 
 
