@@ -285,7 +285,7 @@ function addArticle() {
       formData = new FormData();
 
       for (let j = 0; j < newArticle.length; j++) {
-        console.log(newArticle);
+        console.log(newArticle[j].title);
         let articleTitles = [newArticle[j].title];
 
         console.log(articleTitles);
