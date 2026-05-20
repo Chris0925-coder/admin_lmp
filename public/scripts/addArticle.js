@@ -338,7 +338,7 @@ function addArticle() {
 
           // console.log(articleFiles);
           // formData.append("filename", articleFiles);
-       
+          formData.append("origin", "lmp");
           formData.append("link", newArticle[0].link);
       // }
       urlAddArticle = urlAddArticle+"/array";
