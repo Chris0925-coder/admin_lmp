@@ -305,36 +305,40 @@ function addArticle() {
       //   formData.append("title", articleTitles);
       //   formData.append("paragraph", articleParagraph);
       //   console.log(newArticle.length);
-
-       newArticle.map((element, index) => {
+      let titles = [];
+      let paragraphs = [];
+       newArticle.forEach((element, index) => {
         console.log(element, index);
-        let titles = element.title;
-        let paragraphs = element.paragraph;
+        // let titles = element.title;
+        // let paragraphs = element.paragraph;
 
  
-          let s = {
-            title: [element.title],
-            paragraph: [element.paragraph],
-            filename: element.filename,
-          }
+          // let s = {
+          //   title: [element.title],
+          //   paragraph: [element.paragraph],
+          //   filename: element.filename,
+          // }
         // let r = Array(titles);
 
-        console.log(s);
+        // console.log(s);
           // titles.push(newArticle[index].title);
           // paragraphs.push(newArticle[index].paragraph)
-          console.log(titles);
-          console.log(paragraphs);
-
+          
           console.log(titles.length);
           console.log(paragraphs.length);
-
-          formData.append("title", titles);
-          formData.append("paragraph", paragraphs);
+          titles.push(element.title);
+          titles.push(element.paragraphs);
           formData.append("filename", element.filename);
-
           // return titles;
 
        })
+        console.log(titles);
+        console.log(paragraphs);
+
+        formData.append("title", titles);
+        formData.append("paragraph", paragraphs);
+          
+
           // console.log(articleFiles);
           // formData.append("filename", articleFiles);
        
