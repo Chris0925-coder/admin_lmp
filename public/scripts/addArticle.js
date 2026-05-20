@@ -289,11 +289,12 @@ function addArticle() {
       console.log("array");
       formData = new FormData();
 
-      for (let j = 0; j < newArticle.length; j++) {
+      // for (let j = 0; j < newArticle.length; j++) {
+      for(let j of newArticle) {
       //   console.log(Array(newArticle[j].title));
       //   let articleTitles = newArticle[j].title;
 
-        console.log(newArticle);
+        console.log(j);
         console.log(newArticle.length);
 
 
