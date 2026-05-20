@@ -327,7 +327,7 @@ function addArticle() {
           console.log(element.title);
           console.log(element.paragraph);
           titles.push(element.title);
-          titles.push(element.paragraph);
+          paragraphs.push(element.paragraph);
           formData.append("filename", element.filename);
           // return titles;
 
