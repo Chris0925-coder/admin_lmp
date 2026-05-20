@@ -322,11 +322,12 @@ function addArticle() {
           
 
           // console.log(articleFiles);
-          // formData.append("filename", articleFiles);
-          formData.append("origin", "lmp");
+          formData.append("filename", articleFiles);
+          
           formData.append("link", newArticle[0].link);
       }
       urlAddArticle = urlAddArticle+"/array";
+      formData.append("origin", "lmp");
     }
 
     // console.log(urlAddArticle);
