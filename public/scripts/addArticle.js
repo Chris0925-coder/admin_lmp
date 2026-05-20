@@ -290,7 +290,7 @@ function addArticle() {
       formData = new FormData();
 
       // for (let j = 0; j < newArticle.length; j++) {
-      for(let j of newArticle) {
+      for(let j in newArticle) {
       //   console.log(Array(newArticle[j].title));
       //   let articleTitles = newArticle[j].title;
 
