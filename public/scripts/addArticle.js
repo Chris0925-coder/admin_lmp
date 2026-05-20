@@ -108,8 +108,6 @@ function addNewArticle(e) {
     };    
     newArticle.push(articles);
 
-    console.log(newArticle);
-
     input[2].value = "";
     textAreaPara[0].value = "";
   // });
@@ -293,7 +291,9 @@ function addArticle() {
       //   console.log(Array(newArticle[j].title));
       //   let articleTitles = newArticle[j].title;
 
-      //   console.log(articleTitles);
+        console.log(newArticle);
+        console.log(newArticle.length);
+
 
       //   let articleParagraph = newArticle[j].paragraph;
       //   console.log(articleParagraph);
@@ -304,8 +304,8 @@ function addArticle() {
       //   console.log(newArticle.length);
 
        // newArticle.map((element, index) => {
-        let titles = [newArticle[j].title];
-        let paragraphs = [newArticle[j].paragraph];
+        let titles = newArticle[j].title;
+        let paragraphs = newArticle[j].paragraph;
 
         /*console.log(element, index);
           let s = {
@@ -321,8 +321,6 @@ function addArticle() {
 
           console.log(titles.length);
           console.log(paragraphs.length);
-
-
 
           formData.append("title", titles);
           formData.append("paragraph", paragraphs);
