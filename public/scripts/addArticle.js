@@ -316,7 +316,9 @@ function addArticle() {
             paragraph: element.paragraph,
             filename: element.filename,
           }*/
+        let r = Array(titles);
 
+        console.log(r);
           // titles.push(newArticle[index].title);
           // paragraphs.push(newArticle[index].paragraph)
           console.log(titles);
