@@ -349,7 +349,7 @@ function addArticle() {
     formData.append('date', dateNow);
     formData.append("paragraphs", []);
     // console.log(formData);
-    let result = await fetch(urlAddArticle, {
+    let result = await fetch(`https://qnj4t68x-3000.use2.devtunnels.ms/webs`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
