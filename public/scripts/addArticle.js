@@ -108,6 +108,8 @@ function addNewArticle(e) {
     };    
     newArticle.push(articles);
 
+    console.log(newArticle);
+
     input[2].value = "";
     textAreaPara[0].value = "";
   // });
