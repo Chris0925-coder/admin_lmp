@@ -289,49 +289,34 @@ function addArticle() {
       console.log("array");
       formData = new FormData();
 
-      // for (let j = 0; j < newArticle.length; j++) {
+      for (let j = 0; j < newArticle.length; j++) {
       // for(let j in newArticle) {
       //   console.log(Array(newArticle[j].title));
-      //   let articleTitles = newArticle[j].title;
+        let articleTitles = [newArticle[j].title];
 
         // console.log(j);
         // console.log(newArticle.length);
 
 
-      //   let articleParagraph = newArticle[j].paragraph;
+        let articleParagraph = [newArticle[j].paragraph];
       //   console.log(articleParagraph);
-        // let articleFiles = newArticle[j].filename;
+        let articleFiles = newArticle[j].filename;
       //   console.log(articleFiles);
-      //   formData.append("title", articleTitles);
-      //   formData.append("paragraph", articleParagraph);
+        formData.append("title", articleTitles);
+        formData.append("paragraph", articleParagraph);
       //   console.log(newArticle.length);
-      let titles = [];
-      let paragraphs = [];
 
-       newArticle.forEach((element, index) => {
-                // let titles = element.title;
-        // let paragraphs = element.paragraph;
 
- 
-          // let s = {
-          //   title: [element.title],
-          //   paragraph: [element.paragraph],
-          //   filename: element.filename,
-          // }
-        // let r = Array(titles);
+      // let titles = [];
+      // let paragraphs = [];
 
-        // console.log(s);
-          // titles.push(newArticle[index].title);
-          // paragraphs.push(newArticle[index].paragraph)
-          
-          titles.push(element.title);
-          paragraphs.push(element.paragraph);
-                    formData.append("filename", element.filename);
-          // return titles;
-
-       })
-          formData.append("title", titles);
-          formData.append("paragraph", paragraphs);
+      //  newArticle.forEach((element, index) => {
+      //     titles.push(element.title);
+      //     paragraphs.push(element.paragraph);
+      //               formData.append("filename", element.filename);
+      //  })
+      //     formData.append("title", titles);
+      //     formData.append("paragraph", paragraphs);
 
         
           
@@ -340,7 +325,7 @@ function addArticle() {
           // formData.append("filename", articleFiles);
           formData.append("origin", "lmp");
           formData.append("link", newArticle[0].link);
-      // }
+      }
       urlAddArticle = urlAddArticle+"/array";
     }
 
