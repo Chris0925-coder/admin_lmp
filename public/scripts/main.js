@@ -12,7 +12,7 @@ function submit() {
 		message.style.color = "#009900";
 	    message.innerText = "Iniciando sesion...";
 	    const formData = new FormData(form);
-	    console.log(formData);
+	    // console.log(formData);
 
 
 		let result = await fetch(url, {
@@ -34,7 +34,7 @@ function submit() {
         message.innerText = error;
       });
 
-      console.log(result);
+      // console.log(result);
 
       if (!result.error) {
 	      setCookie("token", result, 7);
