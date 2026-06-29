@@ -36,9 +36,10 @@ function submit() {
 
     if (!result.error) {
       setCookie("token", result, 7);
-      window.location.reload();
+      // window.location.reload();
       //sectionA.setAttribute("class", "hidden");
       //sectionB.removeAttribute("class", "hidden");
+      window.location.href = "https://admin.lovingmypets.pro/";
     } else {
       message.style.color = "#990000";
       message.innerText = result.error;
