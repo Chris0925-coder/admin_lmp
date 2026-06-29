@@ -34,14 +34,11 @@ function submit() {
         message.innerText = error;
       });
 
-    console.log(result);
-    console.log(result);
-
     if (!result.error) {
       setCookie("token", result, 7);
-      //window.location.reload();
-      sectionA.setAttribute("class", "hidden");
-      sectionB.removeAttribute("class", "hidden");
+      window.location.reload();
+      //sectionA.setAttribute("class", "hidden");
+      //sectionB.removeAttribute("class", "hidden");
     } else {
       message.style.color = "#990000";
       message.innerText = result.error;
