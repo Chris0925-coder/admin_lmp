@@ -1,115 +1,124 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ADMIN | Loving My Pets</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ADMIN | Loving My Pets</title>
 
-	<link rel="stylesheet" type="text/css" href="public/css/main.css">
+    <link rel="stylesheet" type="text/css" href="public/css/main.css" />
 
-	<script type="text/javascript" src="public/scripts/cookies.js" defer></script>
+    <script
+      type="text/javascript"
+      src="public/scripts/cookies.js"
+      defer
+    ></script>
 
-	<script type="text/javascript" src="public/scripts/main.js" defer></script>
+    <script type="text/javascript" src="public/scripts/main.js" defer></script>
 
-	<script type="text/javascript" src="public/scripts/addArticle.js" defer></script>
+    <script
+      type="text/javascript"
+      src="public/scripts/addArticle.js"
+      defer
+    ></script>
 
-	<meta name="robots" content="noindex, nofollow">
-</head>
-<body>
-	<header>
-		<nav class="nav container">
-			<div class="nav__logo"></div>
-			<div class="nav__collapse">
-				<button class="nav__menu"><img src="public/svg/menu.svg" class="nav__img" alt="icon-menu"></button>
-				<ul class="nav__link nav__link--menu">
-					<li class="nav__items active">
-						<a href="index.html" class="nav__links">Inicio</a>
-					</li>
-					<li class="nav__items">
-						<a href="acercade.html" class="nav__links">Acerca de</a>
-					</li>
-					<li class="nav__items">
-						<a href="tips.html" class="nav__links">LovingMyPets Tips</a>
-					</li>
-					<li class="nav__items">
-						<a href="contacto.html" class="nav__links">Contacto</a>
-					</li>
-					<li class="nav__items">
-						<a href="productos.html" class="nav__links">Productos Recomendados</a>
-					</li>
-					<!-- <li class="nav__items">
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+  <body>
+    <header>
+      <nav class="nav container">
+        <div class="nav__logo"></div>
+        <div class="nav__collapse">
+          <button class="nav__menu">
+            <img src="public/svg/menu.svg" class="nav__img" alt="icon-menu" />
+          </button>
+          <ul class="nav__link nav__link--menu">
+            <li class="nav__items active">
+              <a href="index.html" class="nav__links">Inicio</a>
+            </li>
+            <li class="nav__items">
+              <a href="acercade.html" class="nav__links">Acerca de</a>
+            </li>
+            <li class="nav__items">
+              <a href="tips.html" class="nav__links">LovingMyPets Tips</a>
+            </li>
+            <li class="nav__items">
+              <a href="contacto.html" class="nav__links">Contacto</a>
+            </li>
+            <li class="nav__items">
+              <a href="productos.html" class="nav__links"
+                >Productos Recomendados</a
+              >
+            </li>
+            <!-- <li class="nav__items">
 						<a href="#" class="nav__links">Blog</a>
 					</li> -->
-					<button class="nav__close"><img src="public/svg/close.svg" alt="close-btn"></button>
-				</ul>
-			</div>
-		</nav>
-	</header>
-	<main>
-		<section class="submit">
-			<div class="body-card">
-				<form id="form">
-					<div class="form-group">
-						<!-- <label>Username</label> -->
-						<input type="text" name="username" placeholder="Username">
-					</div>
-					<div class="form-group">
-						<!-- <label>Password</label> -->
-						<input type="Password" name="password" placeholder="Password">
-					</div>
-					<div>
-						<button type="submit">Login</button>
-					</div>
-				</form>
-			</div>
-		</section>
+            <button class="nav__close">
+              <img src="public/svg/close.svg" alt="close-btn" />
+            </button>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="submit">
+        <div class="body-card">
+          <form id="form">
+            <div class="form-group">
+              <!-- <label>Username</label> -->
+              <input type="text" name="username" placeholder="Username" />
+            </div>
+            <div class="form-group">
+              <!-- <label>Password</label> -->
+              <input type="Password" name="password" placeholder="Password" />
+            </div>
+            <div>
+              <button type="submit">Login</button>
+            </div>
+          </form>
+        </div>
+      </section>
 
-		<div class="articles hidden">
-			<section>
-				<h1>Articulos</h1>
-				<div class="body-card">
-					<h3>Add article</h3>
-					<form id="form-b" enctype="multipart/form-data">
-						<div class="form-group">
-							<label>Title</label>
-							<input type="text" name="title">
-						</div>
-						<div class="form-group">
-							<label>Paragraph</label>
-							<textarea type="text" name="paragraph" rows="5"></textarea>
-							<!-- <button id="add-paragraph">Add paragraph</button> -->
-                			<!-- <button id="add-list">Add list</button> -->
-						</div>
+      <div class="articles hidden">
+        <section>
+          <h1>Articulos</h1>
+          <div class="body-card">
+            <h3>Add article</h3>
+            <form id="form-b" enctype="multipart/form-data">
+              <div class="form-group">
+                <label>Title</label>
+                <input type="text" name="title" />
+              </div>
+              <div class="form-group">
+                <label>Paragraph</label>
+                <textarea type="text" name="paragraph" rows="5"></textarea>
+                <!-- <button id="add-paragraph">Add paragraph</button> -->
+                <!-- <button id="add-list">Add list</button> -->
+              </div>
 
-						<div class="form-group">
-							<label>Image</label>
-							<input type="file" name="filename" id="filename">
-							<p class="error" id="errorMsg"></p>
-                			<img id="preview" alt="Image Preview" />
-						</div>
+              <div class="form-group">
+                <label>Image</label>
+                <input type="file" name="filename" id="filename" />
+                <p class="error" id="errorMsg"></p>
+                <img id="preview" alt="Image Preview" />
+              </div>
 
-						<div class="form-group">
-				          <label for="link">Link</label>
-				          <input type="text" name="link" id="link" />
-				        </div>
-				        <input type="hidden" name="origin" value="lmp" />
-				        <div class="form-group">
-				          <button
-				            id="add-btn"
-				            type="submit"
-				          >
-				            SEND
-				          </button>
-				        </div>
-					</form>
-				</div>
-				<button id="add-new-article">Add Article</button>
-				<span id="message"></span>
-			</section>
+              <div class="form-group">
+                <label for="link">Link</label>
+                <input type="text" name="link" id="link" />
+              </div>
+              <input type="hidden" name="origin" value="lmp" />
+              <div class="form-group">
+                <button id="add-btn" type="submit">SEND</button>
+              </div>
+            </form>
+          </div>
+          <button id="add-new-article">Add Article</button>
+          <span id="message"></span>
+        </section>
 
-			<section class="update body-card">
-		      <h3>Update</h3>
-		      <!-- <div>
+        <section class="update body-card">
+          <h3>Update</h3>
+          <!-- <div>
 		        <form id="form-update" enctype="multipart/form-data">
 		          <div class="form-group">
 		            <label for="title">Title</label>
@@ -131,24 +140,35 @@
 		          </div>
 
 		          <input type="hidden" name="origin" value="lmp" /> -->
-		          <div class="form-group content-btns" id="content-btns"></div>
-		        <!-- </form> -->
-		      <!-- </div> -->
-		    </section>
+          <div class="form-group content-btns" id="content-btns"></div>
+          <!-- </form> -->
+          <!-- </div> -->
+        </section>
 
-		    <section class="body-card">
-		    	<div class="content-delete-btns" id="content-delete-btns"><h3>Delete</h3></div>
-		    </section>
-	    </div>
-	</main>
-	<footer>
-		<div class="copyright">
-	        <div><a rel="nofollow" href="https://www.lovingmypets.pro/cookies.html" target="_blank">Política de cookies</a></div>
-			    <div> copyright © <span class="date"></span> </div>
-			    <div><a rel="nofollow" href="terms.html" target="_blank">Términos y condiciones</a>
-			</div>
-	    </div>
-	</footer>
-
-</body>
+        <section class="body-card">
+          <div class="content-delete-btns" id="content-delete-btns">
+            <h3>Delete</h3>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="copyright">
+        <div>
+          <a
+            rel="nofollow"
+            href="https://www.lovingmypets.pro/cookies.html"
+            target="_blank"
+            >Política de cookies</a
+          >
+        </div>
+        <div>copyright © <span class="date"></span></div>
+        <div>
+          <a rel="nofollow" href="terms.html" target="_blank"
+            >Términos y condiciones</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>

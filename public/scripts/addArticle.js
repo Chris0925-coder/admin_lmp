@@ -20,7 +20,7 @@ fileInput.addEventListener("change", function (event) {
   // errorMsg.textContent = "";
 
   if (!file) {
-    return; 
+    return;
   }
 
   // Validate file type
@@ -37,7 +37,7 @@ fileInput.addEventListener("change", function (event) {
   }
 
   // Create a preview using FileReader
-  
+
   reader.onload = function (e) {
     preview.src = e.target.result;
     preview.style.display = "block";
@@ -57,7 +57,8 @@ let paragraphs = [];
 
 // let blogList = [];
 
-let urlAddArticle = "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
+let urlAddArticle =
+  "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
 
 // const blobUrl =
 // "https://visits-christian-guardias-projects.vercel.app/lovingmypets";
@@ -94,24 +95,23 @@ let articles = {
 let newArticle = [];
 // let formData = new FormData();
 function addNewArticle(e) {
-  
-    e.preventDefault();
+  e.preventDefault();
 
-    let formData = new FormData(formB);
-    articles = {
-      title: formData.get("title"),
-      paragraph: formData.get("paragraph"),
-      filename: formData.get("filename"),
-      origin: formData.get("origin"),
-      link: formData.get("link"),
-      paragraphs: "",
-    };    
-    newArticle.push(articles);
+  let formData = new FormData(formB);
+  articles = {
+    title: formData.get("title"),
+    paragraph: formData.get("paragraph"),
+    filename: formData.get("filename"),
+    origin: formData.get("origin"),
+    link: formData.get("link"),
+    paragraphs: "",
+  };
+  newArticle.push(articles);
 
-    console.log(newArticle);
+  console.log(newArticle);
 
-    input[2].value = "";
-    textAreaPara[0].value = "";
+  input[2].value = "";
+  textAreaPara[0].value = "";
   // });
 }
 // addNewArticle();
@@ -196,8 +196,6 @@ async function getHome() {
       message.innerText = error;
     });
 
-
-
   if (result.message === "Invalid token") {
     removeCookie("token");
     window.location.reload();
@@ -265,18 +263,15 @@ deleteBTN.addEventListener("click", (e) => {
   }
 });
 
-
-
-
 function addArticle() {
   formB.addEventListener("submit", async function (event) {
     event.preventDefault();
 
     // let formData = new FormData();
-    
+
     // addArticleBTN.disabled = true;
 
-        // console.log(newArticle.length === 0);
+    // console.log(newArticle.length === 0);
     if (newArticle.length === 0) {
       console.log("single");
       formData = new FormData(formB);
@@ -290,49 +285,44 @@ function addArticle() {
       formData = new FormData();
 
       for (let j = 0; j < newArticle.length; j++) {
-      // for(let j in newArticle) {
-      //   console.log(Array(newArticle[j].title));
+        // for(let j in newArticle) {
+        //   console.log(Array(newArticle[j].title));
         let articleTitles = [newArticle[j].title];
 
         // console.log(j);
         // console.log(newArticle.length);
 
-
         let articleParagraph = [newArticle[j].paragraph];
-      //   console.log(articleParagraph);
+        //   console.log(articleParagraph);
         let articleFiles = newArticle[j].filename;
-      //   console.log(articleFiles);
+        //   console.log(articleFiles);
         formData.append("title", articleTitles);
         formData.append("paragraph", articleParagraph);
-      //   console.log(newArticle.length);
+        //   console.log(newArticle.length);
 
+        // let titles = [];
+        // let paragraphs = [];
 
-      // let titles = [];
-      // let paragraphs = [];
+        //  newArticle.forEach((element, index) => {
+        //     titles.push(element.title);
+        //     paragraphs.push(element.paragraph);
+        //               formData.append("filename", element.filename);
+        //  })
+        //     formData.append("title", titles);
+        //     formData.append("paragraph", paragraphs);
 
-      //  newArticle.forEach((element, index) => {
-      //     titles.push(element.title);
-      //     paragraphs.push(element.paragraph);
-      //               formData.append("filename", element.filename);
-      //  })
-      //     formData.append("title", titles);
-      //     formData.append("paragraph", paragraphs);
+        // console.log(articleFiles);
+        formData.append("filename", articleFiles);
 
-        
-          
-
-          // console.log(articleFiles);
-          formData.append("filename", articleFiles);
-          
-          formData.append("link", newArticle[0].link);
+        formData.append("link", newArticle[0].link);
       }
-      urlAddArticle = urlAddArticle+"/array";
+      urlAddArticle = urlAddArticle + "/array";
       formData.append("origin", "lmp");
     }
 
     // console.log(urlAddArticle);
-    
-    formData.append('date', dateNow);
+
+    formData.append("date", dateNow);
     formData.append("paragraphs", []);
     // console.log(formData);`https://qnj4t68x-3000.use2.devtunnels.ms/webs`
     let result = await fetch(urlAddArticle, {
@@ -345,26 +335,25 @@ function addArticle() {
       body: formData,
     })
       .then((response) => {
-
-        let res = response.json(); 
+        let res = response.json();
         console.log(response);
         console.log(res);
 
-        if(response.status === 500) {
+        if (response.status === 500) {
           message.innerText = res.message;
           // alert("File size too large. MAX SIZE = 4.5mb");
           // window.location.reload();
         }
 
-        if(response.status === 413) {
+        if (response.status === 413) {
           message.innerText = "File size too large. MAX SIZE = 4.5mb";
           alert("File size too large. MAX SIZE = 4.5mb");
           window.location.reload();
         }
-        
+
         if (res.message === "LIMIT_FILE_SIZE") {
-            alert("File size too large. MAX SIZE = 4.5mb");
-            window.location.reload();
+          alert("File size too large. MAX SIZE = 4.5mb");
+          window.location.reload();
         }
 
         if (res.message === "Invalid token") {
@@ -381,16 +370,11 @@ function addArticle() {
           alert("Upload Successfully");
           window.location.reload();
         }
-
       })
       .catch((error) => console.error("Error: ", error));
 
-      console.log(result);
-      
+    console.log(result);
   });
-    
 }
 
 addArticle();
-
-
