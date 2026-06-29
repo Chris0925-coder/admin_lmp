@@ -219,6 +219,7 @@ async function getHome() {
   });
 }
 // deleteArticle();
+console.log(detectCookie("token"));
 
 if (detectCookie("token")) getHome();
 
