@@ -220,7 +220,7 @@ async function getHome() {
 }
 // deleteArticle();
 
-getHome();
+if (detectCookie("token")) getHome();
 
 async function update(id) {
   let formData = new FormData(formUpdate);
