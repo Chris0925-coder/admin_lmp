@@ -39,7 +39,6 @@ function submit() {
     if (!result.error) {
       setCookie("token", result, 7);
       window.location.reload();
-      // window.location.replace("https://www.crcvpanama.org/pages/admin.html")
     } else {
       message.style.color = "#990000";
       message.innerText = result.error;
